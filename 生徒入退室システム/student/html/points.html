@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポイント履歴</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+
+    <!-- ヘッダー -->
+    <header class="bg-orange-500 text-white p-4 flex flex-col justify-between h-24">
+        <div class="text-xl font-bold">入退室管理システム</div>
+        <div class="flex justify-between items-center mt-2">
+            <div class="text-lg">林太郎 さん</div>
+            <a href="#" class="text-sm text-orange-200 hover:underline">ログアウト</a>
+        </div>
+    </header>
+
+    <!-- ボディ -->
+    <main class="flex-1 p-8">
+        <div class="mb-6 p-4 bg-white rounded-lg shadow-md">
+            <div class="text-lg font-semibold text-gray-800">現在のポイント</div>
+            <div id="current-points" class="text-2xl font-bold text-gray-900">700</div>
+        </div>
+        
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">ポイント履歴</h1>
+        <div class="space-y-4">
+            <!-- ポイント履歴カード1 -->
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-gray-700 font-semibold">2024-07-15</div>
+                    <div>取得ポイント：100</div>
+                    <div>使用ポイント：0</div>
+                </div>
+                <div class="text-gray-700 font-semibold">残高：100</div>
+            </div>
+
+            <!-- ポイント履歴カード2 -->
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-gray-700 font-semibold">2024-07-16</div>
+                    <div>取得ポイント：200</div>
+                    <div>使用ポイント：0</div>
+                </div>
+                <div class="text-gray-700 font-semibold">残高：300</div>
+            </div>
+
+            <!-- ポイント履歴カード3 -->
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-gray-700 font-semibold">2024-07-17</div>
+                    <div>取得ポイント：150</div>
+                    <div>使用ポイント：0</div>
+                </div>
+                <div class="text-gray-700 font-semibold">残高：450</div>
+            </div>
+
+            <!-- ポイント履歴カード4 -->
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-gray-700 font-semibold">2024-07-18</div>
+                    <div>取得ポイント：50</div>
+                    <div>使用ポイント：0</div>
+                </div>
+                <div class="text-gray-700 font-semibold">残高：500</div>
+            </div>
+
+            <!-- ポイント履歴カード5 -->
+            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                <div class="space-y-2">
+                    <div class="text-gray-700 font-semibold">2024-07-19</div>
+                    <div>取得ポイント：200</div>
+                    <div>使用ポイント：0</div>
+                </div>
+                <div class="text-gray-700 font-semibold">残高：700</div>
+            </div>
+        </div>
+        <div class="mt-6">
+            <a href="index.html" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400">戻る</a>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-orange-500 text-white p-4 text-center text-sm">
+        &copy; HIT 2024
+    </footer>
+
+    <script src="../js/points.js"></script>
+</body>
+</html>
