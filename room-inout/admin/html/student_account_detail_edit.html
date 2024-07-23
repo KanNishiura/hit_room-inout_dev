@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生徒アカウント詳細・編集</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- ヘッダー -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">管理システム</h1>
+            <nav>
+                <a href="index.html" class="text-white hover:underline mx-2">ダッシュボード</a>
+                <a href="student_records.html" class="text-white hover:underline mx-2">生徒の入退室記録</a>
+                <a href="teacher_records.html" class="text-white hover:underline mx-2">講師の出退勤記録</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="flex-grow container mx-auto p-4">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">生徒アカウント詳細・編集</h1>
+
+            <!-- 詳細・編集フォーム -->
+            <form>
+                <div class="mb-4">
+                    <label for="student_id" class="block text-gray-700 font-bold mb-2">生徒ID</label>
+                    <input type="text" id="student_id" name="student_id" value="S001" readonly
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
+                    <input type="text" id="name" name="name" value="生徒 一郎"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="age" class="block text-gray-700 font-bold mb-2">年齢</label>
+                    <input type="text" id="age" name="age" value="15"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="guardian_contact" class="block text-gray-700 font-bold mb-2">保護者の連絡先</label>
+                    <input type="text" id="guardian_contact" name="guardian_contact" value="090-1234-5678"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="guardian_email" class="block text-gray-700 font-bold mb-2">保護者のメールアドレス</label>
+                    <input type="email" id="guardian_email" name="guardian_email" value="guardian@example.com"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="class_name" class="block text-gray-700 font-bold mb-2">クラス名</label>
+                    <input type="text" id="class_name" name="class_name" value="クラスA"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <button type="submit"
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">保存</button>
+                    <a href="student_account_management.html" class="text-blue-600 hover:underline">生徒アカウント管理へ戻る</a>
+                </div>
+            </form>
+
+            <!-- 入退室記録一覧 -->
+            <h2 class="text-xl font-bold mt-8 mb-4">入退室記録一覧</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="attendance_detail_edit.html?id=R001" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">2024-07-01</h3>
+                        <p class="text-gray-700">入室: 08:30</p>
+                        <p class="text-gray-700">退室: 15:00</p>
+                    </div>
+                </a>
+                <a href="attendance_detail_edit.html?id=R002" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">2024-07-02</h3>
+                        <p class="text-gray-700">入室: 08:30</p>
+                        <p class="text-gray-700">退室: 15:00</p>
+                    </div>
+                </a>
+                <a href="attendance_detail_edit.html?id=R003" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">2024-07-03</h3>
+                        <p class="text-gray-700">入室: 08:30</p>
+                        <p class="text-gray-700">退室: 15:00</p>
+                    </div>
+                </a>
+                <!-- その他のレコードも追加できます -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-blue-600 text-white p-4 mt-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 管理システム</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
