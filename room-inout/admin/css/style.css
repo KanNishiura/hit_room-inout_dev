@@ -1,0 +1,94 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #E2E2B6; /* ライトイエロー背景 */
+    color: #03346E; /* テキストカラーとしてミッドナイトブルー */
+}
+
+header {
+    background: #03346E; /* ミッドナイトブルー */
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+aside {
+    width: 200px;
+    background: #021526; /* ダークブルー */
+    color: #6EACDA; /* ライトブルー */
+    position: fixed;
+    top: 40px; /* ヘッダーの高さを考慮 */
+    height: calc(100% - 60px);
+    padding: 50px 20px;
+    overflow-y: auto;
+}
+
+aside h1 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin-bottom: 15px;
+}
+
+aside ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #6EACDA; /* ライトブルー */
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+aside ul li a:hover {
+    background: rgba(110, 172, 218, 0.2); /* ライトブルーのホバー効果 */
+}
+
+aside ul li a i {
+    margin-right: 10px;
+}
+
+main {
+    margin-left: 200px;
+    padding: 70px 20px 70px 10px; /* ヘッダーと余白の調整 */
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-height: calc(100vh - 0px); /* ヘッダーの高さを引いた高さ */
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #021526; /* ダークブルー */
+    color: #6EACDA; /* ライトブルー */
+    text-align: center;
+    padding: 10px 0;
+}

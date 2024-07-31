@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生徒アカウント管理</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- ヘッダー -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">入退室 - 管理システム</h1>
+            <nav>
+                <a href="index.html" class="text-white hover:underline mx-2">ダッシュボード</a>
+                <a href="student_records.html" class="text-white hover:underline mx-2">生徒の入退室記録</a>
+                <a href="teacher_records.html" class="text-white hover:underline mx-2">講師の出退勤記録</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="flex flex-grow">
+
+        <!-- サイドバー -->
+        <aside>
+            <ul>
+                <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
+                <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
+                <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
+            </ul>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">メール通知</h1>
+            <form id="notificationForm" class="space-y-4">
+                <div>
+                    <label for="subject" class="block text-lg font-semibold mb-2">件名:</label>
+                    <input type="text" id="subject" name="subject" class="w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4" placeholder="件名を入力してください">
+                </div>
+                <div>
+                    <label for="message" class="block text-lg font-semibold mb-2">メッセージ内容:</label>
+                    <textarea id="message" name="message" rows="6" class="w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4" placeholder="お知らせの内容を入力してください"></textarea>
+                </div>
+                <div>
+                    <label for="recipients" class="block text-lg font-semibold mb-2">送信先:</label>
+                    <input type="text" id="subject" name="subject" class="w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4" placeholder="mail">
+                </div>
+                <div>
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">送信</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+    <!-- フッター -->
+    <footer class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto text-center">
+            &copy; 2024 管理システム
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('notificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // フォームデータを取得
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const recipients = document.getElementById('recipients').value;
+
+            // メール送信のロジックをここに追加
+            // 例えば、API経由でメールを送信する場合
+
+            console.log('件名:', subject);
+            console.log('メッセージ内容:', message);
+            console.log('送信先:', recipients);
+
+            alert('お知らせが送信されました！');
+        });
+    </script>
+</body>
+
+</html>

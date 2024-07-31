@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講師の出退勤一覧</title>
     <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -21,44 +23,460 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ -->
-    <main class="flex-grow container mx-auto p-4">
+    <div class="flex flex-grow">
+
+        <!-- サイドバー -->
+        <aside>
+            <ul>
+                <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
+                <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
+                <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
+            </ul>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
         <div class="bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-bold mb-4">講師の出退勤一覧</h1>
-            
+            <div class="mb-4 flex flex-wrap -mx-2">
+                <div class="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
+                    <label for="searchDate" class="block text-lg font-semibold mb-2">日付で検索:</label>
+                    <input type="date" id="searchDate" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4">
+                </div>
+                <div class="w-full sm:w-1/2 px-2">
+                    <label for="filterClassroom" class="block text-lg font-semibold mb-2">教室名:</label>
+                    <select id="filterClassroom" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4">
+                        <option value="">全ての教室</option>
+                        <option value="本町5号館">本町5号館</option>
+                        <option value="本町8号館">本町8号館</option>
+                        <option value="天満橋201">天満橋201</option>
+                        <!-- 他の教室名もここに追加 -->
+                    </select>
+                </div>
+            </div>
             <table id="teacherTable" class="min-w-full bg-white">
                 <thead class="bg-gray-200 text-gray-600">
                     <tr>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">講師ID</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">日付</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">名前</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">担当クラス</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">教室名</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">出勤時刻</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">退勤時刻</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">T001</td>
-                        <td class="py-2 px-4 border-b border-gray-300">中村 一郎</td>
-                        <td class="py-2 px-4 border-b border-gray-300">1-A, 2-A</td>
-                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:50</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:20</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
                         <td class="py-2 px-4 border-b border-gray-300">17:00</td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">T002</td>
-                        <td class="py-2 px-4 border-b border-gray-300">山田 美咲</td>
-                        <td class="py-2 px-4 border-b border-gray-300">1-B</td>
-                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
-                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:29</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:05</td>
                     </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:40</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:30</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:35</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:55</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:50</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:20</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:35</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:05</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:55</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:30</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:40</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:10</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-29</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">07:50</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:20</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-29</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-29</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-22</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-22</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-22</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:35</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:55</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-15</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-15</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-15</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr><tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-08</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-08</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-08</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-01</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-01</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-06-01</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-18</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-18</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-18</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-11</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-11</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-11</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-04</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-04</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-05-04</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-04-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-03-30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">林 太郎</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:15</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-03-30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木村 早貴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-03-30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">木内 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">17:00</td>
+                    </tr>
+                    
                 </tbody>
             </table>
-
+            <div id="pagination" class="mt-4 flex justify-center">
+                <button id="prev" class="px-3 py-1 mx-1 border rounded disabled:opacity-50" disabled>前へ</button>
+                <div id="pageNumbers" class="flex"></div>
+                <button id="next" class="px-3 py-1 mx-1 border rounded">次へ</button>
+            </div>
             <div class="mt-4">
                 <a href="index.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">ダッシュボードへ戻る</a>
             </div>
         </div>
     </main>
+</div>
 
     <!-- フッター -->
     <footer class="bg-blue-600 text-white p-4 mt-4">
@@ -68,5 +486,110 @@
     </footer>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rowsPerPage = 10; // 1ページあたりの行数
+        let currentPage = 1; // 現在のページ
+
+        const rows = document.querySelectorAll("#teacherTable tbody tr");
+        const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+        function displayRows(page) {
+            const start = (page - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+
+            rows.forEach((row, index) => {
+                row.style.display = index >= start && index < end ? "" : "none";
+            });
+        }
+
+        function updatePaginationButtons() {
+            document.getElementById("prev").disabled = currentPage === 1;
+            document.getElementById("next").disabled = currentPage === totalPages;
+
+            const pageNumbersContainer = document.getElementById("pageNumbers");
+            pageNumbersContainer.innerHTML = "";
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageNumber = document.createElement("button");
+                pageNumber.textContent = i;
+                pageNumber.className = "px-3 py-1 mx-1 border rounded";
+                if (i === currentPage) {
+                    pageNumber.classList.add("bg-blue-500", "text-white");
+                }
+                pageNumber.addEventListener("click", () => {
+                    currentPage = i;
+                    displayRows(currentPage);
+                    updatePaginationButtons();
+                });
+                pageNumbersContainer.appendChild(pageNumber);
+            }
+        }
+
+        document.getElementById("prev").addEventListener("click", () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayRows(currentPage);
+                updatePaginationButtons();
+            }
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayRows(currentPage);
+                updatePaginationButtons();
+            }
+        });
+
+        displayRows(currentPage);
+        updatePaginationButtons();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const rows = document.querySelectorAll("#teacherTable tbody tr");
+        const searchDateInput = document.getElementById("searchDate");
+        const filterClassroomInput = document.getElementById("filterClassroom");
+
+        function filterRows() {
+            const searchDate = searchDateInput.value.trim();
+            const filterClassroom = filterClassroomInput.value.trim();
+
+            rows.forEach(row => {
+                const dateCell = row.cells[0].textContent.trim();
+                const classroomCell = row.cells[2].textContent.trim();
+                const matchesDate = !searchDate || dateCell === searchDate;
+                const matchesClassroom = !filterClassroom || classroomCell === filterClassroom;
+
+                if (matchesDate && matchesClassroom) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        searchDateInput.addEventListener("input", filterRows);
+        filterClassroomInput.addEventListener("change", filterRows);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const rows = document.querySelectorAll("#teacherTable tbody tr");
+        const searchDateInput = document.getElementById("searchDate");
+
+        searchDateInput.addEventListener("input", function() {
+            const searchDate = searchDateInput.value.trim();
+
+            rows.forEach(row => {
+                const dateCell = row.cells[0].textContent.trim();
+                if (dateCell === searchDate) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
 
 </html>

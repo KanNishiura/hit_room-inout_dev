@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>生徒アカウント詳細・編集</title>
     <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -22,8 +24,19 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ -->
-    <main class="flex-grow container mx-auto p-4">
+    <div class="flex flex-grow">
+
+        <!-- サイドバー -->
+        <aside>
+            <ul>
+                <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
+                <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
+                <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
+            </ul>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
         <div class="bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-bold mb-4">生徒アカウント詳細・編集</h1>
 
@@ -36,29 +49,38 @@
                 </div>
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
-                    <input type="text" id="name" name="name" value="生徒 一郎"
+                    <input type="text" id="name" name="name" value="河内 陽太"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="age" class="block text-gray-700 font-bold mb-2">年齢</label>
-                    <input type="text" id="age" name="age" value="15"
+                    <input type="text" id="age" name="age" value="10"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="guardian_contact" class="block text-gray-700 font-bold mb-2">保護者の連絡先</label>
-                    <input type="text" id="guardian_contact" name="guardian_contact" value="090-1234-5678"
+                    <input type="text" id="guardian_contact" name="guardian_contact" value="080-2345-6789"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="guardian_email" class="block text-gray-700 font-bold mb-2">保護者のメールアドレス</label>
-                    <input type="email" id="guardian_email" name="guardian_email" value="guardian@example.com"
+                    <label for="guardian_email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
+                    <input type="email" id="guardian_email" name="guardian_email" value="starfish_yota@gmaii.com"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="class_name" class="block text-gray-700 font-bold mb-2">クラス名</label>
-                    <input type="text" id="class_name" name="class_name" value="クラスA"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <label for="class_name" class="block text-gray-700 font-bold mb-2">教室名</label>
+                    <select id="class_name" name="class_name" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                        <option value="本町5号館">本町5号館</option>
+                        <option value="本町8号館">本町8号館</option>
+                        <option value="天満橋201">天満橋201</option>
+                        <option value="天満橋202">天満橋202</option>
+                        <option value="天満橋203">天満橋203</option>
+                        <option value="心斎橋">心斎橋</option>
+                        <option value="三宮3階">三宮3階</option>
+                        <option value="三宮4階">三宮4階</option>
+                    </select>
                 </div>
+                
                 <div class="flex items-center justify-between mb-4">
                     <button type="submit"
                         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">保存</button>
@@ -68,33 +90,87 @@
 
             <!-- 入退室記録一覧 -->
             <h2 class="text-xl font-bold mt-8 mb-4">入退室記録一覧</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="attendance_detail_edit.html?id=R001" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold mb-2">2024-07-01</h3>
-                        <p class="text-gray-700">入室: 08:30</p>
-                        <p class="text-gray-700">退室: 15:00</p>
-                    </div>
-                </a>
-                <a href="attendance_detail_edit.html?id=R002" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold mb-2">2024-07-02</h3>
-                        <p class="text-gray-700">入室: 08:30</p>
-                        <p class="text-gray-700">退室: 15:00</p>
-                    </div>
-                </a>
-                <a href="attendance_detail_edit.html?id=R003" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold mb-2">2024-07-03</h3>
-                        <p class="text-gray-700">入室: 08:30</p>
-                        <p class="text-gray-700">退室: 15:00</p>
-                    </div>
-                </a>
-                <!-- その他のレコードも追加できます -->
+
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="py-2 px-4 border-b border-gray-300">日付</th>
+                        <th class="py-2 px-4 border-b border-gray-300">入室時間</th>
+                        <th class="py-2 px-4 border-b border-gray-300">退室時間</th>
+                        <th class="py-2 px-4 border-b border-gray-300">アクション</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="attendance_detail_edit.html?id=R001" class="text-blue-600 hover:underline">編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-27</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="attendance_detail_edit.html?id=R002" class="text-blue-600 hover:underline">編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-22</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:15</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="attendance_detail_edit.html?id=R003" class="text-blue-600 hover:underline">編集</a>
+                        </td>
+                    </tr>
+                    <!-- 追加のレコード -->
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-13</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:20</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:35</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="attendance_detail_edit.html?id=R004" class="text-blue-600 hover:underline">編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-07-06</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:25</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:40</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="attendance_detail_edit.html?id=R005" class="text-blue-600 hover:underline">編集</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ページネーション -->
+            <div class="flex justify-center mt-4">
+                <nav>
+                    <ul class="inline-flex items-center -space-x-px">
+                        <li>
+                            <a href="#" class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">前へ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">次へ</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
         </div>
     </main>
+</div>
 
     <!-- フッター -->
     <footer class="bg-blue-600 text-white p-4 mt-4">

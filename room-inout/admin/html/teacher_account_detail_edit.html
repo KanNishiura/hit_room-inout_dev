@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講師アカウント 詳細・編集</title>
     <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -22,9 +24,19 @@
             </nav>
         </div>
     </header>
+    <div class="flex flex-grow">
 
-    <!-- メインコンテンツ -->
-    <main class="flex-grow container mx-auto p-4">
+        <!-- サイドバー -->
+        <aside>
+            <ul>
+                <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
+                <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
+                <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
+            </ul>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
         <div class="bg-white shadow-md rounded-lg p-6">
             <h1 class="text-2xl font-bold mb-4">講師アカウント 詳細・編集</h1>
 
@@ -32,32 +44,27 @@
             <form action="teacher_account_detail_edit.html" method="post">
                 <div class="mb-4">
                     <label for="teacher_id" class="block text-gray-700 font-bold mb-2">講師ID</label>
-                    <input type="text" id="teacher_id" name="teacher_id" value="T001" readonly
+                    <input type="text" id="teacher_id" name="teacher_id" value="T002" readonly
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
-                    <input type="text" id="name" name="name" value="講師 太郎"
+                    <input type="text" id="name" name="name" value="林 太郎"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="age" class="block text-gray-700 font-bold mb-2">年齢</label>
-                    <input type="text" id="age" name="age" value="40"
+                    <label for="age" class="block text-gray-700 font-bold mb-2">所属</label>
+                    <input type="text" id="age" name="age" value="本町5号館"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="contact" class="block text-gray-700 font-bold mb-2">連絡先</label>
-                    <input type="text" id="contact" name="contact" value="090-9876-5432"
+                    <input type="text" id="contact" name="contact" value="06-6121-6354"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
-                    <input type="email" id="email" name="email" value="teacher@example.com"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
-                </div>
-                <div class="mb-4">
-                    <label for="classes" class="block text-gray-700 font-bold mb-2">担当クラス</label>
-                    <input type="text" id="classes" name="classes" value="クラスB, クラスC"
+                    <input type="email" id="email" name="email" value="hayashi@h-i-t.jp"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="flex items-center justify-between mb-4">
@@ -81,25 +88,33 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="py-2 px-4 border-b">2024-07-01</td>
-                            <td class="py-2 px-4 border-b">09:00</td>
-                            <td class="py-2 px-4 border-b">17:00</td>
+                            <td class="py-2 px-4 border-b">2024-08-03</td>
+                            <td class="py-2 px-4 border-b">07:50</td>
+                            <td class="py-2 px-4 border-b">17:20</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="teacher_attendance_detail_edit.html?id=A001" class="text-blue-600 hover:underline">編集</a>
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-4 border-b">2024-07-02</td>
-                            <td class="py-2 px-4 border-b">09:00</td>
-                            <td class="py-2 px-4 border-b">17:00</td>
+                            <td class="py-2 px-4 border-b">2024-07-27</td>
+                            <td class="py-2 px-4 border-b">07:40</td>
+                            <td class="py-2 px-4 border-b">17:30</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="teacher_attendance_detail_edit.html?id=A002" class="text-blue-600 hover:underline">編集</a>
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-2 px-4 border-b">2024-07-03</td>
-                            <td class="py-2 px-4 border-b">09:00</td>
-                            <td class="py-2 px-4 border-b">17:00</td>
+                            <td class="py-2 px-4 border-b">2024-07-20</td>
+                            <td class="py-2 px-4 border-b">07:45</td>
+                            <td class="py-2 px-4 border-b">17:15</td>
+                            <td class="py-2 px-4 border-b">
+                                <a href="teacher_attendance_detail_edit.html?id=A003" class="text-blue-600 hover:underline">編集</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2024-07-13</td>
+                            <td class="py-2 px-4 border-b">07:50</td>
+                            <td class="py-2 px-4 border-b">17:20</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="teacher_attendance_detail_edit.html?id=A003" class="text-blue-600 hover:underline">編集</a>
                             </td>
@@ -111,6 +126,7 @@
 
         </div>
     </main>
+</div>
 
     <!-- フッター -->
     <footer class="bg-blue-600 text-white p-4 mt-4">
