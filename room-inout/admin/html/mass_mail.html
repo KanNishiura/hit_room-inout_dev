@@ -4,23 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生徒アカウント管理</title>
+    <title>一斉メール通知</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
 </head>
 
-<body class="bg-gray-100 flex flex-col min-h-screen">
+<body>
 
     <!-- ヘッダー -->
-    <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold">管理システム</h1>
-            <nav>
-                <a href="index.html" class="text-white hover:underline mx-2">ダッシュボード</a>
-                <a href="student_records.html" class="text-white hover:underline mx-2">生徒の入退室記録</a>
-                <a href="teacher_records.html" class="text-white hover:underline mx-2">講師の出退勤記録</a>
+    <header class="bg-gray-100 p-2">
+        <div class="container mx-1 flex justify-between">
+            <h1 class="text-lg font-bold w-fit"><a href="../../../../index.html">
+                <i class="fa-regular fa-clock mx-1"></i>
+                入退室管理システム</a></h1>
+            <nav class=" p-2 w-fit text-right">
+                <a href="index.html" class="hover:underline mx-2">ダッシュボード</a>
+                <a href="student_records.html" class="hover:underline mx-2">生徒の入退室記録</a>
+                <a href="teacher_records.html" class="hover:underline mx-2">講師の出退勤記録</a>
+                <a href="mypage.html" class="hover:underline mx-2">
+                    <i class="fa-regular fa-circle-user"></i> 西浦 幹
+                </a>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </header>
 

@@ -2,14 +2,12 @@
 body {
     margin: 0;
     padding: 0;
-    background: #E2E2B6; /* ライトイエロー背景 */
-    color: #03346E; /* テキストカラーとしてミッドナイトブルー */
+    color: #03346E;
 }
 
 header {
-    background: #03346E; /* ミッドナイトブルー */
-    color: #fff;
-    padding: 10px 0;
+    background: #03346E;
+    color: #021526;
     position: fixed;
     width: 100%;
     top: 0;
@@ -23,20 +21,33 @@ header .container {
 }
 
 header a {
-    color: #fff;
+    color: #021526;
     text-decoration: none;
-    padding: 0 15px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #021526;
+    margin: 5px;
+    transition: 0.4s;
 }
 
 aside {
     width: 200px;
-    background: #021526; /* ダークブルー */
-    color: #6EACDA; /* ライトブルー */
+    background: #021526;
+    color: #6EACDA;
     position: fixed;
-    top: 40px; /* ヘッダーの高さを考慮 */
+    top: 60px;
     height: calc(100% - 60px);
     padding: 50px 20px;
     overflow-y: auto;
+    transition: transform 0.3s ease;
 }
 
 aside h1 {
@@ -60,13 +71,13 @@ aside ul li a {
     align-items: center;
     padding: 10px;
     text-decoration: none;
-    color: #6EACDA; /* ライトブルー */
+    color: #6EACDA;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
 aside ul li a:hover {
-    background: rgba(110, 172, 218, 0.2); /* ライトブルーのホバー効果 */
+    background: rgba(110, 172, 218, 0.2);
 }
 
 aside ul li a i {
@@ -75,11 +86,11 @@ aside ul li a i {
 
 main {
     margin-left: 200px;
-    padding: 70px 20px 70px 10px; /* ヘッダーと余白の調整 */
+    padding: 100px 20px 70px 10px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    min-height: calc(100vh - 0px); /* ヘッダーの高さを引いた高さ */
+    min-height: calc(100vh - 60px);
 }
 
 footer {
@@ -87,8 +98,32 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #021526; /* ダークブルー */
-    color: #6EACDA; /* ライトブルー */
+    background: #021526;
+    color: #6EACDA;
     text-align: center;
     padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+    aside {
+        transform: translateX(-100%);
+    }
+
+    aside.open {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    header .container {
+        padding: 10px;
+    }
 }
