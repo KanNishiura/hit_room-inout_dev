@@ -13,42 +13,13 @@
 
 <body>
     <!-- ヘッダー -->
-    <header class="bg-gray-100 p-2">
-        <div class="container mx-1 flex justify-between">
-            <h1 class="text-lg font-bold w-fit"><a href="../../../room-inout/room-inout.html">
-                <i class="fa-regular fa-clock mx-1"></i>
-                入退室管理システム</a></h1>
-            <div class="flex">
-                <nav class="p-2 w-fit text-right">
-                    <a href="mypage.html" class="hover:underline mx-2">
-                        <i class="fa-regular fa-circle-user"></i> 西浦 幹
-                    </a>
-                </nav>
-                <div class="hamburger my-auto" id="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            
-        </div>
-    </header>
+    <div id="header"></div>
 
     <div class="flex flex-grow">
 
         <!-- サイドバー -->
-        <aside id="sidebar">
-            <ul>
-                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> ダッシュボード</a></li>
-                <li><a href="student_records.html"><i class="fas fa-user-check"></i> 生徒の入退室記録</a></li>
-                <li><a href="teacher_records.html"><i class="fas fa-chalkboard-teacher"></i> 講師の出退勤記録</a></li>
-                <li>　</li>
-                <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
-                <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
-                <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
-                <li><a href="mypage.html"><i class="fa-regular fa-circle-user"></i> マイページ</a></li>
-            </ul>
-        </aside>
+        <div id="sidebar"></div>
+
 
         <!-- メインコンテンツ -->
         <main class="flex-grow">
@@ -90,7 +61,7 @@
             </form>
 
             <!-- 出退勤記録一覧 -->
-            <h2 class="text-xl font-bold mt-8 mb-4">出退勤記録一覧</h2>
+            <h2 class="text-xl font-bold mt-8 mb-4">出退勤記録一覧 <a class="text-right">a</a></h2> 
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white border border-gray-300 rounded-lg">
                     <thead>
@@ -139,16 +110,34 @@
                 </table>
             </div>
 
+            <!-- ページネーション -->
+            <div class="flex justify-center mt-4">
+                <nav>
+                    <ul class="inline-flex items-center -space-x-px">
+                        <li>
+                            <a href="#" class="py-2 px-3 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">前へ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">次へ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </main>
 </div>
 
     <!-- フッター -->
-    <footer>
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 入退室管理システム</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
 </body>
 

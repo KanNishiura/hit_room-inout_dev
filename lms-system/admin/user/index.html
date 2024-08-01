@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ja" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HITスクール管理 : ユーザ管理</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+  <style>
+    .flatpickr-current-month {
+      display: flex;
+      justify-content: center;
+    }
+    .cur-year {
+      order: 1
+    }
+    .cur-month:before  {
+      content: "年 "
+    }
+    .cur-month {
+      order: 2
+    }
+  </style>
+</head>
+<body class="h-100">
+  <!— ヘッダー -->
+  <header class="w-100 d-flex px-3 justify-content-between align-items-center " style="height: 50px">
+    <h1 class="fs-4">HITスクール管理画面</h1>
+  </header>
+
+  <div class="d-flex flex-row w-100" style="height: calc(100% - 50px)">
+    <!— サイドメニュー -->
+    <nav class="nav flex-column p-3" style="width: 230px">
+      <a class="nav-link" href="../course/index.html">コース管理</a>
+      <a class="nav-link" href="../user/index.html">ユーザ管理</a>
+      <hr/>
+      <a class="nav-link" href="../staff/index.html">スタッフ管理</a>
+      <a class="nav-link" href="../school/index.html">学校管理</a>
+      <a class="nav-link" href="../teacher/index.html">講師管理</a>
+      <hr/>
+      <a class="nav-link" href="../index.html">ログアウト</a>
+    </nav>
+
+    <!— メインコンテンツ -->
+    <main class="w-100 h-100">
+      <!— パンくず -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../top.html">トップ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ユーザ管理</li>
+        </ol>
+      </nav>
+
+      <div class="p-3">
+        <!-- 検索欄 -->
+        <div class="col-8" style="margin-bottom: 20px">
+          <form method="post" action="./index.html">
+            <div class="input-group input-group-sm">
+              <input class="form-control" type="text" placeholder="キーワードを入力">
+              <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> 検索</button>
+            </div>
+          </form>
+          <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#searchOption" aria-expanded="false" aria-controls="searchOption">詳細検索</button>
+          <div class="collapse" id="searchOption">
+            <div class="card card-body">
+              <form method="post" action="./index.html">
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="field">分野</label>
+                  <select class="form-select" id="field" name="field">
+                    <option selected>全て</option>
+                    <option value="1">IT系</option>
+                    <option value="2">デザイン系</option>
+                    <option value="3">ネイリスト</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="school">場所</label>
+                  <select class="form-select" id="school" name="school">
+                    <option selected>全て</option>
+                    <option value="1">天満橋校</option>
+                    <option value="2">本町校</option>
+                    <option value="3">心斎橋校</option>
+                    <option value="4">三宮校</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="name">訓練名</label>
+                  <input type="text" class="form-control" id="name" name="name" />
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="name">姓名</label>
+                  <input type="text" class="form-control" id="name" name="name" />
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="graduate">修了生</label>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="graduate" name="graduate">
+                    <label class="form-check-label" for="graduate">修了生を含める</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <button class="btn btn-primary" type="submit">検索</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- 新規登録 -->
+        <div class="col-4" style="margin-bottom: 20px">
+          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalUpload">新規登録（CSV）</button>
+        </div>
+
+        <!-- 新規登録ダイアログ -->
+        <div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="modalUpload" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalUpload">ユーザ登録</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="csv">CSVファイル</label>
+                  <input type="file" class="form-control" id="csv" name="csv" value="" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">登録する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 修了確認ダイアログ -->
+        <div class="modal fade" id="modalFinish" tabindex="-1" aria-labelledby="modalFinish" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalFinish">削除確認</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>修了してもかまいませんか？</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">削除する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 削除確認ダイアログ -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalDelete">削除確認</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>削除してもかまいませんか？</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">削除する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ページング -->
+        <nav aria-label="pagination">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#" aria-label="first"><span aria-hidden="true">&laquo;</span></a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#" aria-label="last"><span aria-hidden="true">&raquo;</span></a></li>
+          </ul>
+        </nav>
+
+        <!-- 削除(ページング位置に揃えるためのマイナススタイル) -->
+        <div class="mb-3" style="margin-top: -53px">
+          <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalFinish" id="finish" disabled>修了</button>
+          <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" id="delete" disabled>削除</button>
+        </div>
+
+        <!-- 一覧 -->
+        <!--  role="button" : カーソル形状変更のため -->
+        <table class="table table-hover table-striped" id="userList">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checkAll" /></div>
+              </th>
+              <th scope="col">受講生番号</th>
+              <th scope="col">姓</th>
+              <th scope="col">名</th>
+              <th scope="col">メールアドレス</th>
+              <th scope="col">修了生</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>4821-394728</td>
+              <td>西田</td>
+              <td>晋次</td>
+              <td>shinji_nishida@example.ne.jp</td>
+              <td><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>7594-284910</td>
+              <td>名取</td>
+              <td>都</td>
+              <td>natori_miyako@example.org</td>
+              <td><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>1932-574620</td>
+              <td>石丸</td>
+              <td>和希</td>
+              <td>kazuki_ishimaru@example.jp</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>6473-108932</td>
+              <td>吉川</td>
+              <td>俊幸</td>
+              <td>toshiyuki_yoshikawa@example.net</td>
+              <td><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>2847-691403</td>
+              <td>阿藤</td>
+              <td>正志</td>
+              <td>masashiato@example.com</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>9182-756104</td>
+              <td>前田</td>
+              <td>直子</td>
+              <td>naokomaeda@example.com</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>3709-482615</td>
+              <td>藤井</td>
+              <td>やよい</td>
+              <td>fujii_yayoi@example.co.jp</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>5268-193740</td>
+              <td>松本</td>
+              <td>里美</td>
+              <td>matsumoto_1127@example.net</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>8041-376295</td>
+              <td>竹村</td>
+              <td>貴徳</td>
+              <td>takemura_takanori@example.co.jp</td>
+              <td></td>
+            </tr>
+            <tr role="button">
+              <td class="text-center">
+                <div class="checkbox"><input type="checkbox" class="check" id="checks" /></div>
+              </td>
+              <td>3915-827046</td>
+              <td>長友</td>
+              <td>絵理奈</td>
+              <td>nagatomo_erina@example.com</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const finishButton = document.getElementById("finish");
+  const deleteButton = document.getElementById("delete");
+  const checkall = document.getElementById("checkAll");
+  const checks = document.querySelectorAll("#checks");
+  checkall.addEventListener('click', () => {
+    for (val of checks) {
+      checkall.checked == true ? val.checked = true : val.checked = false;
+    }
+    // 修了・削除ボタンへ反映
+    checkall.checked == true ? finishButton.disabled = false : finishButton.disabled = true;
+    checkall.checked == true ? deleteButton.disabled = false : deleteButton.disabled = true;
+  });
+  checks.forEach(element => {
+    element.addEventListener('click', () => {
+      // チェックが1つでも外れた
+      if (element.checked == false) {
+        checkall.checked = false;
+      }
+      // 全てにチェックがされた
+      if (document.querySelectorAll("#checks:checked").length == checks.length) {
+        checkall.checked = true;
+      }
+      // 1つでチェックあれば修了・削除ボタンを有効化
+      if (document.querySelectorAll("#checks:checked").length > 0) {
+        finishButton.disabled = false;
+        deleteButton.disabled = false;
+      }
+      // チェックが無ければ修了・削除ボタンを無効化
+      if (document.querySelectorAll("#checks:checked").length == 0) {
+        finishButton.disabled = true;
+        deleteButton.disabled = true;
+      }
+    });
+  });
+  function addRowHandlers() {
+    const table = document.getElementById("userList");
+    const rows = table.getElementsByTagName("tr");
+    // ヘッダーを除外するため1から開始
+    for (i = 1; i < rows.length; i++) {
+      const currentRow = table.rows[i];
+      const createClickHandler = 
+        function(row) {
+          return function(e) {
+            // 削除列で反応しないように
+            if ((e.target.cellIndex != undefined) && (e.target.cellIndex > 0)) {
+              window.location.href = './detail.html';
+            }
+          };
+        };
+      currentRow.onclick = createClickHandler(currentRow);
+    }
+  }
+  window.onload = () => {
+    addRowHandlers();
+  }
+</script>
+
+</html>
