@@ -4,26 +4,54 @@ body {
     padding: 0;
     color: #03346E;
 }
-
 header {
     background: #03346E;
     color: #021526;
     position: fixed;
     width: 100%;
+    height: auto;
     top: 0;
     z-index: 1000;
+    padding: 10px 20px; /* ヘッダーの内部余白を追加 */
+    box-sizing: border-box;
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* コンテンツの折り返しを防ぐ */
+    overflow: hidden; /* コンテンツがオーバーフローするのを防ぐ */
+}
+
+header h1 {
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
+    overflow: hidden; /* オーバーフローした部分を隠す */
+    text-overflow: ellipsis; /* テキストが溢れた場合に...を表示 */
+    max-width: calc(100% - 50px); /* ハンバーガーメニュー分のスペースを確保 */
 }
 
 header a {
     color: #021526;
     text-decoration: none;
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #021526;
+    margin: 5px;
+    transition: 0.4s;
+}
+
 
 .hamburger {
     display: none;
@@ -43,9 +71,9 @@ aside {
     background: #021526;
     color: #6EACDA;
     position: fixed;
-    top: 60px;
+    top: 0px;
     height: calc(100% - 60px);
-    padding: 50px 20px;
+    padding: 100px 20px;
     overflow-y: auto;
     transition: transform 0.3s ease;
 }
@@ -105,16 +133,21 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+    
+    header .container {
+        padding: 10px;
+    }
+
     aside {
         transform: translateX(-100%);
     }
 
     aside.open {
         transform: translateX(0);
-    }
-
-    .hamburger {
-        display: block;
     }
 
     main {

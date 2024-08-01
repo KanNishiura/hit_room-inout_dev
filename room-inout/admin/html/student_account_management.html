@@ -12,36 +12,41 @@
 </head>
 
 <body>
-
     <!-- ヘッダー -->
     <header class="bg-gray-100 p-2">
         <div class="container mx-1 flex justify-between">
             <h1 class="text-lg font-bold w-fit"><a href="../../../../index.html">
                 <i class="fa-regular fa-clock mx-1"></i>
                 入退室管理システム</a></h1>
-            <nav class=" p-2 w-fit text-right">
-                <a href="index.html" class="hover:underline mx-2">ダッシュボード</a>
-                <a href="student_records.html" class="hover:underline mx-2">生徒の入退室記録</a>
-                <a href="teacher_records.html" class="hover:underline mx-2">講師の出退勤記録</a>
-                <a href="mypage.html" class="hover:underline mx-2">
-                    <i class="fa-regular fa-circle-user"></i> 西浦 幹
-                </a>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="flex">
+                <nav class="p-2 w-fit text-right">
+                    <a href="mypage.html" class="hover:underline mx-2">
+                        <i class="fa-regular fa-circle-user"></i> 西浦 幹
+                    </a>
+                </nav>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
+            
         </div>
     </header>
+
     <div class="flex flex-grow">
 
         <!-- サイドバー -->
-        <aside>
+        <aside id="sidebar">
             <ul>
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> ダッシュボード</a></li>
+                <li><a href="student_records.html"><i class="fas fa-user-check"></i> 生徒の入退室記録</a></li>
+                <li><a href="teacher_records.html"><i class="fas fa-chalkboard-teacher"></i> 講師の出退勤記録</a></li>
+                <li>　</li>
                 <li><a href="admin_account_management.html"><i class="fas fa-user-shield"></i> 管理者一覧</a></li>
                 <li><a href="student_account_management.html"><i class="fas fa-user-graduate"></i> 生徒一覧</a></li>
                 <li><a href="teacher_account_management.html"><i class="fas fa-chalkboard-teacher"></i> 講師一覧</a></li>
+                <li><a href="mypage.html"><i class="fa-regular fa-circle-user"></i> マイページ</a></li>
             </ul>
         </aside>
 
