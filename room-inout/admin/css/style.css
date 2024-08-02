@@ -5,14 +5,14 @@ body {
     color: #03346E;
 }
 header {
-    background: #03346E;
-    color: #021526;
+    background: #505050;
+    color: #ffffff;
     position: fixed;
     width: 100%;
     height: auto;
     top: 0;
     z-index: 1000;
-    padding: 10px 20px; /* ヘッダーの内部余白を追加 */
+    padding: 5px 20px; /* ヘッダーの内部余白を追加 */
     box-sizing: border-box;
 }
 
@@ -32,7 +32,7 @@ header h1 {
 }
 
 header a {
-    color: #021526;
+    color: #ffffff;
     text-decoration: none;
     white-space: nowrap; /* テキストの折り返しを防ぐ */
     overflow: hidden;
@@ -115,7 +115,7 @@ aside ul li a i {
 
 main {
     margin-left: 220px;
-    padding: 110px 30px 0px 30px;
+    padding: 90px 30px 0px 30px;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -158,9 +158,7 @@ footer {
         padding-right: 20px;
     }
 
-    header .container {
-        padding: 10px;
-    }
+
 }
 
 

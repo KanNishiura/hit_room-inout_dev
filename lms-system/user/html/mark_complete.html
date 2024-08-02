@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユニット進捗管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text text-2xl font-bold">ユニット進捗管理</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div id="unit-card-1" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between border-green-500 bg-green-100">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=1'">
+                                <span id="checkmark-1" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                1. Javaの基本
+                            </h2>
+                            <p class="mb-4">このユニットでは、Javaの基本的な概念とプログラミングの基礎を学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-1', 6, 'checkmark-1', 'unit-card-1')">
+                            <div id="progress-bar-1" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                            <span id="progress-percent-1" class="absolute inset-0 text-center text-white">100%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-2" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=2'">
+                                <span id="checkmark-2" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                2. Web開発基礎
+                            </h2>
+                            <p class="mb-4">このユニットでは、HTML、CSS、JavaScriptの基本を学び、簡単なWebページを作成します。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-2', 6, 'checkmark-2', 'unit-card-2')">
+                            <div id="progress-bar-2" class="h-6 rounded-full" style="width: 0%;"></div>
+                            <span id="progress-percent-2" class="absolute inset-0 text-center text-white">0%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-3" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=3'">
+                                <span id="checkmark-3" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                3. 制御構造
+                            </h2>
+                            <p class="mb-4">このユニットでは、Javaの制御構造について学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-3', 6, 'checkmark-3', 'unit-card-3')">
+                            <div id="progress-bar-3" class="h-6 rounded-full" style="width: 0%;"></div>
+                            <span id="progress-percent-3" class="absolute inset-0 text-center text-white">0%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-4" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=4'">
+                                <span id="checkmark-4" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                4. オブジェクト指向プログラミング（OOP）の基礎
+                            </h2>
+                            <p class="mb-4">このユニットでは、オブジェクト指向プログラミングの基本概念とその適用方法を学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-4', 6, 'checkmark-4', 'unit-card-4')">
+                            <div id="progress-bar-4" class="h-6 rounded-full" style="width: 0%;"></div>
+                            <span id="progress-percent-4" class="absolute inset-0 text-center text-white">0%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-5" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=5'">
+                                <span id="checkmark-5" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                5. JavaでのWeb開発
+                            </h2>
+                            <p class="mb-4">このユニットでは、Javaを使ったWebアプリケーションの開発方法を学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-5', 6, 'checkmark-5', 'unit-card-5')">
+                            <div id="progress-bar-5" class="h-6 rounded-full" style="width: 0%;"></div>
+                            <span id="progress-percent-5" class="absolute inset-0 text-center text-white">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        function markComplete(progressBarId, totalLessons, checkmarkId, cardId) {
+            const progressBar = document.getElementById(progressBarId);
+            const progressPercent = document.getElementById('progress-percent-' + progressBarId.split('-')[2]);
+            const checkmark = document.getElementById(checkmarkId);
+            const card = document.getElementById(cardId);
+            const currentWidth = parseFloat(progressBar.style.width) || 0;
+            const increment = 100 / totalLessons;
+            const newWidth = Math.min(currentWidth + increment, 100);
+            progressBar.style.width = newWidth + '%';
+            progressPercent.textContent = Math.round(newWidth) + '%';
+
+            if (newWidth <= 33) {
+                progressBar.classList.remove('bg-yellow-500', 'bg-green-500');
+                progressBar.classList.add('bg-red-500');
+            } else if (newWidth <= 66) {
+                progressBar.classList.remove('bg-red-500', 'bg-green-500');
+                progressBar.classList.add('bg-yellow-500');
+            } else {
+                progressBar.classList.remove('bg-red-500', 'bg-yellow-500');
+                progressBar.classList.add('bg-green-500');
+            }
+
+            if (newWidth === 100) {
+                checkmark.classList.remove('hidden');
+                card.classList.add('border-green-500', 'bg-green-100');
+            }
+        }
+    </script>
+</body>
+</html>

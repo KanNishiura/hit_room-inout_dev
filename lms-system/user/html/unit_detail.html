@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- ヘッダー -->
+    <div id="header"></div>
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">ユニット詳細</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="container mx-auto p-6">
+                <h1 id="unit-title" class="text-3xl font-bold mb-4">ユニット詳細</h1>
+                <div id="unit-content" class="bg-white p-6 rounded-lg shadow-md">
+                    <p id="unit-description" class="mb-4"></p>
+                    <h2 class="text-2xl font-semibold mb-2">レッスン一覧</h2>
+                    <ul id="lesson-list" class="list-disc pl-5"></ul>
+                </div>
+                <a href="mark_complete.html" class="text-blue-600 hover:underline mt-4 block">戻る</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const unit = urlParams.get('unit');
+
+        const unitData = {
+            1: {
+                title: 'Javaの基本',
+                description: 'このユニットでは、Javaの基本的な概念とプログラミングの基礎を学びます。',
+                lessons: [
+                    'Javaとは何か？',
+                    '開発環境のセットアップ',
+                    '最初のプログラム「Hello World」',
+                    '基本的なデータ型と変数',
+                    '演算子と式'
+                ]
+            },
+            2: {
+                title: 'Web開発基礎',
+                description: 'このユニットでは、HTML、CSS、JavaScriptの基本を学び、簡単なWebページを作成します。',
+                lessons: [
+                    'HTMLの基本',
+                    'CSSの基本',
+                    'JavaScriptの基本',
+                    'フロントエンドとバックエンドの基本概念',
+                    'Webページの作成とデプロイ'
+                ]
+            },
+            3: {
+                title: '制御構造',
+                description: 'このユニットでは、Javaの制御構造について学びます。',
+                lessons: [
+                    '条件分岐（if文、switch文）',
+                    '繰り返し（for文、while文、do-while文）',
+                    'ネストされた制御構造',
+                    '配列の基本',
+                    '拡張for文'
+                ]
+            },
+            4: {
+                title: 'オブジェクト指向プログラミング（OOP）の基礎',
+                description: 'このユニットでは、オブジェクト指向プログラミングの基本概念とその適用方法を学びます。',
+                lessons: [
+                    'クラスとオブジェクト',
+                    'メソッドの定義と呼び出し',
+                    'コンストラクタと初期化',
+                    'アクセス修飾子とカプセル化',
+                    '継承とポリモーフィズム'
+                ]
+            },
+            5: {
+                title: 'JavaでのWeb開発',
+                description: 'このユニットでは、Javaを使ったWebアプリケーションの開発方法を学びます。',
+                lessons: [
+                    'サーブレットとJSPの導入',
+                    'サーブレットのライフサイクル',
+                    'フォームデータの処理',
+                    'セッション管理とクッキー',
+                    'データベース接続（JDBC）'
+                ]
+            }
+        };
+
+        if (unitData[unit]) {
+            document.getElementById('unit-title').textContent = unitData[unit].title;
+            document.getElementById('unit-description').textContent = unitData[unit].description;
+            const lessonList = document.getElementById('lesson-list');
+            unitData[unit].lessons.forEach(lesson => {
+                const listItem = document.createElement('li');
+                listItem.textContent = lesson;
+                lessonList.appendChild(listItem);
+            });
+        } else {
+            document.getElementById('unit-title').textContent = 'ユニットが見つかりません';
+            document.getElementById('unit-content').innerHTML = '<p>指定されたユニットは存在しません。ユニット一覧に戻って再度選択してください。</p>';
+        }
+
+        document.querySelectorAll('.unit-toggle').forEach(item => {
+            item.addEventListener('click', event => {
+                const unitId = event.target.dataset.unitId;
+                window.location.href = `unit_detail.html?unit=${unitId}`;
+            });
+        });
+    </script>
+</body>
+</html>

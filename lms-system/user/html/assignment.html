@@ -24,6 +24,21 @@
             width: 100%;
             height: 100%;
         }
+        .drop-zone {
+            border: 2px dashed #cccccc;
+            padding: 20px;
+            text-align: center;
+            color: #cccccc;
+        }
+        .drop-zone.dragover {
+            border-color: #333333;
+            color: #333333;
+        }
+        @media (min-width: 1024px) {
+            .lg\:h-full {
+                height: 100%;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -42,13 +57,13 @@
             </div>
         
             <div class="bg-white shadow-md rounded p-4">
-                <h2 class="font-semibold mb-2">1.クラスとオブジェクト</h2>
+                <h2 class="font-semibold mb-2">課題: シンプルなクラス階層を設計・実装</h2>
         
                 <div class="flex flex-col lg:flex-row">
                     <div class="flex-grow lg:w-8/12">
                         <div class="video-container mb-4">
                             <video id="video" class="video-js vjs-default-skin" controls preload="auto" data-setup='{"fluid": true}'>
-                                <source src="../video/sample01.mp4" type="video/mp4" />
+                                <source src="../video/sample02.mp4" type="video/mp4" />
                             </video>
                         </div>
                         <div class="flex justify-between">
@@ -60,14 +75,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="lg:w-4/12 lg:pl-4 mt-4 lg:mt-0">
-                        <h2 class="font-semibold mb-2"><i class="fas fa-book mr-2"></i>Javaクラスとオブジェクトのメモ</h2>
-                        <ul class="list-disc pl-5 text-sm">
-                            <li><strong>クラス</strong>: オブジェクトの設計図。プロパティと動作を定義。</li>
-                            <li><strong>オブジェクト</strong>: クラスに基づく実際のインスタンス。状態と動作を持つ。</li>
-                            <li><strong>クラスの定義</strong>: <code>class</code> キーワードを使用。</li>
-                            <li><strong>オブジェクトの作成</strong>: <code>new</code> キーワードを使用。</li>
-                        </ul>
+                    <div class="lg:w-4/12  m-4 ">
+                        <h2 class="font-semibold mb-2"><i class="fas fa-download mr-2"></i>ダウンロード</h2>
+                        <a href="#" class="text-blue-800" ><i class="fas fa-file-archive mr-2"></i> 課題ファイル[java-class-hierarchy-assignment.zip]</a><br>
+                        <a href="#" class="text-blue-800" ><i class="fas fa-file-archive mr-2"></i> 課題ファイル[oop-assignment.zip]</a><br>
+                        <hr>
+                        <h2 class="font-semibold mb-2"><i class="fas fa-upload mr-2"></i>アップロード</h2>
+                        <div id="drop-zone" class="drop-zone text-xs">
+                            ここにファイルをドラッグ＆ドロップ<br>または<br>
+                            <button id="file-select-button" class="mt-2 p-2 bg-blue-500 text-white rounded">ファイルを選択</button>
+                            <input type="file" id="file-input" class="hidden">
+                        </div>
+                        <div id="file-list" class="mt-4"></div>
                     </div>
                 </div>
             </div>
@@ -114,17 +133,54 @@
             isPlaying = false;
         });
 
-        // [次へ]ボタンの制御
+        // [次の動画]ボタンの制御
         var nextButton = document.getElementById('next');
         nextButton.onclick = function() {
-            window.location.href = 'assignment.html';
-        };
-
-        // [前へ]ボタンの制御
-        var prevButton = document.getElementById('prev');
-        prevButton.onclick = function() {
             window.location.href = 'index.html';
         };
+
+        // [前の動画]ボタンの制御
+        var prevButton = document.getElementById('prev');
+        prevButton.onclick = function() {
+            window.location.href = 'video.html';
+        };
+
+        // ファイルアップロードの制御
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileSelectButton = document.getElementById('file-select-button');
+        const fileList = document.getElementById('file-list');
+
+        fileSelectButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', handleFiles);
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            handleFiles({ target: { files } });
+        });
+
+        function handleFiles(e) {
+            const files = e.target.files;
+            fileList.innerHTML = '';
+            for (const file of files) {
+                const listItem = document.createElement('div');
+                listItem.innerHTML = `<i class="fas fa-file-archive mr-2"></i>${file.name}`;
+                fileList.appendChild(listItem);
+            }
+        }
     </script>
 </body>
 </html>

@@ -17,39 +17,58 @@
 
     <div class="flex flex-grow">
 
-        <!-- サイドバー -->
-        <div id="sidebar"></div>
-
         <!-- メインコンテンツ -->
         <main class="flex-grow">
-            <h1 class="text-2xl font-bold mb-4">TOP</h1>
+
+
+            <div class="flex justify-between mb-4">
+                
+                <div class="flex justify-between space-x-4">
+                    西浦さんこんにちは
+                </div>
+                <div class="hamburger my-auto mx-4" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
             
+
+            <div class="text-xs border bg-white text-gray-700  rounded px-2 py-2   w-full mb-4">
+                <a class="p-2 ">進捗:</a>
+                <a class="p-2 font-semibold text-gray-600">4-5.継承とポリモーフィズム</a>
+                <a class="p-2">まで視聴完了</a>
+                <a href="assignment.html" class="hover:bg-indigo-500 hover:text-white rounded-md text-blue-700 p-2">--->>次のコンテンツへ</a>
+            </div>
+
             <div class="flex justify-between space-x-4 mb-4">
-                <a href="student_records.html" class="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500 flex-1 text-center">生徒の入退室記録一覧</a>
-                <a href="teacher_records.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex-1 text-center">講師の出退勤一覧</a>
+                <a href="mark_complete.html" class="bg-white border border-green-600 text-green-600 border-b-2 border-r-2 px-4 py-2 rounded hover:bg-green-300 flex-1 text-center">ユニット進捗</a>
+                <a href="test.html" class="bg-white border border-yellow-600 text-yellow-600 border-b-2 border-r-2 px-4 py-2 rounded hover:bg-yellow-300 flex-1 text-center">定期考査</a>
+                <a href="test_result.html" class="bg-white border border-rose-600 text-rose-600 border-b-2 border-r-2 px-4 py-2 rounded hover:bg-rose-300 flex-1 text-center">考査成績</a>
             </div>
         
             <div class="flex justify-between space-x-4">
-                <a href="mass_mail.html" class="bg-blue-400 text-white px-4 rounded hover:bg-blue-500 text-center flex-1" style="height: 40px; line-height: 40px;">メール一斉送信</a>
+                <!-- <a href="mypage.html" class="bg-white border border-indigo-600 text-indigo-600 border-b-2 border-r-2 px-4 py-2 rounded hover:bg-indigo-300 flex-1 text-center">マイページ</a> -->
             </div>
         
             <div class="mt-8">
                 <h2 class="text-xl font-bold mb-4">NEWS</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本町5号館</h3>
-                        <p class="text-gray-600">2024/08/03 全員入室しました。</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
+                        <h3 class="font-semibold text-lg mb-2">HITスクール _ 木内 講師</h3>
+                        <p class="text-gray-600">テストの採点が完了しました。</p>
+                        <p class="text-right">2024/07/29</p>
                     </div>
                     <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本部</h3>
-                        <p class="text-gray-600">2024/08/03 ホームページが更新完了しました。追加項目は...</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
+                        <h3 class="font-semibold text-lg mb-2">HITスクール _ 本部</h3>
+                        <p class="text-gray-600">就職支援に関してのメールを送信しています。メールの確認をお願いいたします。</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-2 block">メールを確認する</a>
+                        <p class="text-right">2024/07/23</p>
                     </div>
                     <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本町8号室</h3>
-                        <p class="text-gray-600">2024/08/03 全員入室しました。</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
+                        <h3 class="font-semibold text-lg mb-2">HITスクール _ お知らせ</h3>
+                        <p class="text-gray-600">HTMLの課題が追加されました。</p>
+                        <p class="text-right">2024/07/20</p>
                     </div>
                     <!-- 他のニュースカードをここに追加 -->
                 </div>
@@ -59,6 +78,10 @@
 
     </div>
 
+    <!-- サイドバー -->
+    <aside id="sidebar">
+        <div id="sidebar"></div>
+    </aside>
     <!-- フッター -->
     <div id="footer"></div>
 

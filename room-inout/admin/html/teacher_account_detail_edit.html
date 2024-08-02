@@ -18,13 +18,20 @@
     <div class="flex flex-grow">
 
         <!-- サイドバー -->
-        <div id="sidebar"></div>
-
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
 
         <!-- メインコンテンツ -->
         <main class="flex-grow">
-        <div class="bg-white shadow-md rounded-lg p-6">
-            <h1 class="text-2xl font-bold mb-4">講師アカウント 詳細・編集</h1>
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">講師アカウント 詳細・編集</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
 
             <!-- 詳細・編集フォーム -->
             <form action="teacher_account_detail_edit.html" method="post">
