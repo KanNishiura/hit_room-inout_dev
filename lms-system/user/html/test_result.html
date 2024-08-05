@@ -3,41 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS</title>
+    <title>考査成績 - 作成中</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .radio-button {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .radio-button:hover {
-            background-color: #f0f0f0;
-        }
-        .radio-button input {
-            margin-right: 0.5rem;
-        }
-        .radio-button.selected {
-            background-color: #e0e0e0;
-            border: 2px solid #000;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100">
     <!-- ヘッダー -->
     <div id="header"></div>
 
     <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
         <!-- メインコンテンツ -->
         <main class="flex-grow">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">考査成績 - 作成中</h1>
+                <h1 class="text-2xl font-bold">考査成績</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -45,19 +30,86 @@
                 </div>
             </div>
 
+            <!-- テスト成績のサマリ表示 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">1.Javaの基本</h2>
+                    <p class="text-gray-700">得点: 80</p>
+                    <p class="text-gray-700">平均点: 75</p>
+                    <p class="text-gray-700">最高点: 90</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">2.Web開発基礎</h2>
+                    <p class="text-gray-700">得点: 70</p>
+                    <p class="text-gray-700">平均点: 65</p>
+                    <p class="text-gray-700">最高点: 85</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">3.制御構造</h2>
+                    <p class="text-gray-700">得点: 90</p>
+                    <p class="text-gray-700">平均点: 80</p>
+                    <p class="text-gray-700">最高点: 95</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">4.OOPの基礎</h2>
+                    <p class="text-gray-700">得点: 100</p>
+                    <p class="text-gray-700">平均点: 90</p>
+                    <p class="text-gray-700">最高点: 100</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">5.JavaでのWeb開発</h2>
+                    <p class="text-gray-700">得点: --</p>
+                    <p class="text-gray-700">平均点: --</p>
+                    <p class="text-gray-700">最高点: --</p>
+                </div>
+            </div>
+
+            <!-- レーダーチャート -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">分野ごとの成績分析</h2>
+                <canvas id="radarChart"></canvas>
+            </div>
         </main>
     </div>
 
-    <!-- サイドバー -->
-    <aside id="sidebar">
-        <div id="sidebar"></div>
-    </aside>
     <!-- フッター -->
     <div id="footer"></div>
 
     <!-- JavaScriptファイルのロード -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/script.js" defer></script>
-
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Javaの基本', 'Web開発基礎', '制御構造', 'OOPの基礎', 'JavaでのWeb開発'],
+                datasets: [{
+                    label: '西浦さんの点数',
+                    data: [90, 70, 90, 100, 0],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                }, {
+                    label: '平均点',
+                    data: [75, 65, 80, 90, 0],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)'
+                }, {
+                    label: '最高点',
+                    data: [90, 85, 95, 100, 0],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                }]
+            },
+            options: {
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

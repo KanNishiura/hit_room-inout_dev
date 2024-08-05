@@ -1,12 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    color: #836FFF;
+    color: #686D76;
 }
 
 header {
-    background: #836FFF;
-    color: #F0F3FF;
+    background: #686D76;
+    color: #EEEEEE;
     position: fixed;
     width: 100%;
     height: auto;
@@ -32,7 +32,7 @@ header h1 {
 }
 
 header a {
-    color: #F0F3FF;
+    color: #EEEEEE;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
@@ -47,14 +47,14 @@ header a {
 .hamburger div {
     width: 25px;
     height: 3px;
-    background-color: #211951;
+    background-color: #373A40;
     margin: 5px;
     transition: 0.4s;
 }
 
 aside {
     width: 23%;
-    background: #211951;
+    background: #373A40;
     color: #fff;
     position: fixed;
     top: 0;
@@ -94,7 +94,7 @@ aside ul li a {
 }
 
 aside ul li a:hover {
-    background: rgba(110, 172, 218, 0.2);
+    background: #686D76;
 }
 
 aside ul li a i {
@@ -144,7 +144,7 @@ aside ul ul li a:hover {
 main {
     margin-left: 23%;
     padding: 70px 30px 30px 30px;
-    background: #F0F3FF;
+    background: #EEEEEE;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     min-height: calc(100vh - 10px);
@@ -154,7 +154,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #211951;
+    background: #373A40;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -162,7 +162,7 @@ footer {
 
 hr {
     border: 3;
-    border-top: 1px solid #F0F3FF;
+    border-top: 1px solid #EEEEEE;
     margin: auto;
     padding: 10px;
 }
