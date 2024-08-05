@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ詳細・編集</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">コンテンツ詳細・編集</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <form id="video-form" class="bg-white shadow-md rounded p-6 mb-6">
+                <div class="mb-4">
+                    <label for="video-id" class="block text-gray-700">ID</label>
+                    <input type="text" id="video-id" name="video_id" value="1" class="w-full px-3 py-2 border rounded" readonly>
+                </div>
+
+                <div class="mb-4">
+                    <label for="video-name" class="block text-gray-700">コンテンツ名</label>
+                    <input type="text" id="video-name" name="video_name" value="Javaとは何か？" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label for="unit-name" class="block text-gray-700">ユニット名</label>
+                    <select id="unit-name" name="unit_name" class="w-full px-3 py-2 border rounded">
+                        <option value="Javaの基本" selected>Javaの基本</option>
+                        <option value="Web開発基礎">Web開発基礎</option>
+                        <option value="制御構造">制御構造</option>
+                        <option value="オブジェクト指向プログラミング（OOP）の基礎">オブジェクト指向プログラミング（OOP）の基礎</option>
+                        <option value="JavaでのWeb開発">JavaでのWeb開発</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="unit-name" class="block text-gray-700">種別</label>
+                    <select id="unit-name" name="unit_name" class="w-full px-3 py-2 border rounded">
+                        <option value="動画" selected>動画</option>
+                        <option value="課題">課題</option>
+                    </select>
+                </div>
+
+
+                <div class="mb-4">
+                    <label for="unit-name" class="block text-gray-700">コンテンツ</label>
+                    <div class="video-container mb-4">
+                        <video id="current-video" class="video-js vjs-default-skin" controls preload="auto" data-setup='{"fluid": true}'>
+                            <source src="../video/sample01.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <input type="file" id="video-file" name="video_file" class="rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="unit-name" class="block text-gray-700">その他教材</label>
+
+                    <a href="#" class="text-blue-800" ><i class="fas fa-file-archive mr-2"></i>教材ファイル[java-class-memo.txt.zip]</a><br>
+                    <input type="file" id="video-file" name="video_file" class="rounded">
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">保存</button>
+                </div>
+            </form>
+
+            <a href="video_show.html" class="text-blue-500 underline">>> コンテンツ一覧へ戻る</a>
+        </main>
+    </div>
+
+    <!-- サイドバー -->
+    <aside id="sidebar">
+        <div id="sidebar"></div>
+    </aside>
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>

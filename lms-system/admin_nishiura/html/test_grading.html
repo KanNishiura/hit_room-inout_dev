@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定期考査採点</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">定期考査採点</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded mb-4 p-4">
+                <div class="mb-4">
+                    <label for="exam-select" class="block text-gray-700">考査を選択してください</label>
+                    <select id="exam-select" class="w-full px-3 py-2 border rounded">
+                        <option value="" selected disabled>選択してください</option>
+                        <option value="1">Java基礎実践コース - 7月</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="user-select" class="block text-gray-700">答案者を選択してください</label>
+                    <select id="user-select" class="w-full px-3 py-2 border rounded">
+                        <option value="" selected disabled>選択してください</option>
+                        <option value="2">名取 都</option>
+                        <option value="3">石丸 和希</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-end">
+                    <button id="load-exam" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">採点を開始</button>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded mb-4 p-4">
+                <div id="exam-form">
+                    <!-- 自動採点結果を表示 -->
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-4">
+                <button id="save-grades" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">採点保存</button>
+            </div>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline mt-4 block">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const examData = [
+            { id: 1, question: '次のコードを実行した結果を選びなさい。', answer: 'B', options: ['A', 'B', 'C', 'D'], studentAnswer: 'A' },
+            { id: 2, question: '次のコードで正しい結果を出力するものを選びなさい。', answer: 'B', options: ['A', 'B', 'C', 'D'], studentAnswer: 'B' },
+            { id: 3, question: '次のコードについて、どのような値が出力されるか選びなさい。', answer: 'B', options: ['A', 'B', 'C', 'D'], studentAnswer: 'C' },
+            { id: 4, question: '次のコードについて、どのアクセス修飾子が正しいか選びなさい。', answer: 'A', options: ['A', 'B', 'C', 'D'], studentAnswer: 'A' },
+            { id: 5, question: '次のコードを実行した結果を選びなさい。', answer: 'A', options: ['A', 'B', 'C', 'D'], studentAnswer: 'A' },
+            { id: 6, question: '次のコードを実行した結果を選びなさい。', answer: 'A', options: ['A', 'B', 'C', 'D'], studentAnswer: 'A' },
+            { id: 7, question: 'クラスとオブジェクトの違いを説明しなさい。', answer: '', isText: true, studentAnswer: 'クラスとオブジェクトは同じものです。' },
+            { id: 8, question: 'コンストラクタの役割を説明しなさい。', answer: '', isText: true, studentAnswer: 'コンストラクタはオブジェクトを削除するために使われます。' },
+            { id: 9, question: '継承とポリモーフィズムの関係を説明しなさい。', answer: '', isText: true, studentAnswer: '継承はクラスを複製するために使用されます。' }
+        ];
+
+        function renderExam() {
+            const examForm = document.getElementById('exam-form');
+            examForm.innerHTML = '';
+
+            examData.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('mb-4', 'p-4', 'bg-white', 'shadow-md', 'rounded');
+
+                const questionText = document.createElement('div');
+                questionText.innerHTML = `<strong>問.${question.id}</strong> ${question.question}`;
+                questionDiv.appendChild(questionText);
+
+                if (question.isText) {
+                    const studentAnswer = document.createElement('p');
+                    studentAnswer.classList.add('mt-2', 'p-2', 'border', 'rounded');
+                    studentAnswer.textContent = question.studentAnswer;
+                    questionDiv.appendChild(studentAnswer);
+
+                    const gradingTextArea = document.createElement('textarea');
+                    gradingTextArea.classList.add('w-full', 'border', 'rounded', 'p-2', 'mt-2');
+                    gradingTextArea.placeholder = '管理者の答案を記述';
+                    questionDiv.appendChild(gradingTextArea);
+
+                    const gradingOptions = document.createElement('div');
+                    gradingOptions.classList.add('mt-2');
+                    gradingOptions.innerHTML = `
+                        <label class="mr-2"><input type="radio" name="grade${question.id}" value="〇"> 〇</label>
+                        <label class="mr-2"><input type="radio" name="grade${question.id}" value="×"> ×</label>
+                        <label class="mr-2"><input type="radio" name="grade${question.id}" value="△"> △</label>
+                    `;
+                    questionDiv.appendChild(gradingOptions);
+                } else {
+                    const result = document.createElement('div');
+                    result.classList.add('mt-2', 'font-bold');
+                    result.innerHTML = question.options.map(option => 
+                        question.studentAnswer === option ? 
+                        `<span class="${question.studentAnswer === question.answer ? 'text-green-500' : 'text-red-500'}">${option}</span>` :
+                        option
+                    ).join(' ');
+                    questionDiv.appendChild(result);
+
+                    const autoGrading = document.createElement('div');
+                    autoGrading.classList.add('mt-2', 'font-bold');
+                    if (question.studentAnswer === question.answer) {
+                        autoGrading.textContent = '〇';
+                        autoGrading.classList.add('text-green-500');
+                    } else {
+                        autoGrading.textContent = '×';
+                        autoGrading.classList.add('text-red-500');
+                    }
+                    questionDiv.appendChild(autoGrading);
+                }
+
+                examForm.appendChild(questionDiv);
+            });
+        }
+
+        document.getElementById('load-exam').addEventListener('click', () => {
+            const examSelect = document.getElementById('exam-select').value;
+            const userSelect = document.getElementById('user-select').value;
+
+            if (examSelect && userSelect) {
+                renderExam();
+            } else {
+                alert('考査と答案者を選択してください。');
+            }
+        });
+
+        document.getElementById('save-grades').addEventListener('click', () => {
+            const examSelect = document.getElementById('exam-select').value;
+            const userSelect = document.getElementById('user-select').value;
+            if (!examSelect || !userSelect) {
+                alert('考査と答案者を選択してください。');
+                return;
+            }
+
+            const gradedData = examData.map(question => {
+                const grade = document.querySelector(`input[name="grade${question.id}"]:checked`);
+                const adminComment = question.isText ? document.querySelector(`textarea[name="adminComment${question.id}"]`).value : '';
+                return {
+                    ...question,
+                    grade: grade ? grade.value : '',
+                    adminComment: adminComment || ''
+                };
+            });
+
+            console.log(gradedData); // Here you can send this data to the server or process it as needed
+            alert('採点結果が保存されました。');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動画管理</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">考査管理</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="flex justify-end mb-4">
+                <a href="test_create.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">考査新規登録</a>
+            </div>
+
+            <div class="bg-white shadow-md rounded p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">考査一覧</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="border p-2">1</td>
+                        <td class="border p-2">
+                            <a href="test_detail.html" class="text-blue-500 hover:underline">Javaの基本</a>
+                        </td>
+                        <td class="border p-2">
+                            <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">2</td>
+                        <td class="border p-2">
+                            <a href="test_detail.html" class="text-blue-500 hover:underline">Web開発基礎</a>
+                        </td>
+                        <td class="border p-2">
+                            <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">3</td>
+                        <td class="border p-2">
+                            <a href="test_detail.html" class="text-blue-500 hover:underline">制御構造</a>
+                        </td>
+                        <td class="border p-2">
+                            <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2">4</td>
+                        <td class="border p-2">
+                            <a href="test_detail.html" class="text-blue-500 hover:underline">オブジェクト指向プログラミング（OOP）の基礎</a>
+                        </td>
+                        <td class="border p-2">
+                            <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex justify-center mt-4">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">前へ</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">次へ</a>
+                </nav>
+            </div>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline mt-4 block">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>

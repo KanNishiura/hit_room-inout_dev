@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザー管理</title>
+    <title>コース登録</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -21,7 +21,7 @@
         <!-- メインコンテンツ -->
         <main class="flex-grow">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">ユーザー管理</h1>
+                <h1 class="text-2xl font-bold">コース管理</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -30,29 +30,46 @@
             </div>
 
             <div class="bg-white shadow-md rounded p-6 mb-6">
-                <h2 class="text-xl font-semibold mb-4">ユーザー一覧</h2>
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="border p-2">ID</th>
-                            <th class="border p-2">名前</th>
-                            <th class="border p-2">メールアドレス</th>
-                            <th class="border p-2">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="border p-2">1</td>
-                            <td class="border p-2">山田 太郎</td>
-                            <td class="border p-2">taro@example.com</td>
-                            <td class="border p-2">
-                                <a href="#" class="text-blue-500 hover:underline">編集</a>
-                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
-                            </td>
-                        </tr>
-                        <!-- 他のユーザーを追加 -->
-                    </tbody>
-                </table>
+                <h2 class="text-xl font-semibold mb-4">コース登録</h2>
+
+                <form id="course-form" class="space-y-4">
+                    <div>
+                        <label for="course-name" class="block text-gray-700">コース名</label>
+                        <input type="text" id="course-name" name="course_name" class="w-full px-3 py-2 border rounded">
+                    </div>
+
+                    <div>
+                        <label for="course-type" class="block text-gray-700">コース種別</label>
+                        <input type="text" id="course-type" name="course_type" class="w-full px-3 py-2 border rounded">
+                    </div>
+
+                    <div>
+                        <label for="course-period" class="block text-gray-700">コース期間</label>
+                        <input type="text" id="course-period" name="course_period" class="w-full px-3 py-2 border rounded">
+                    </div>
+
+                    <div>
+                        <label for="units" class="block text-gray-700">ユニット</label>
+                        <div id="units" class="space-y-2">
+                            <!-- ここにユニットが追加される -->
+                        </div>
+                        <div class="flex mt-4">
+                            <select id="unit-select" class="w-full px-3 py-2 border rounded">
+                                <option value="" selected disabled>ユニットを選択してください</option>
+                                <option value="Javaの基本">Javaの基本</option>
+                                <option value="Web開発基礎">Web開発基礎</option>
+                                <option value="制御構造">制御構造</option>
+                                <option value="オブジェクト指向プログラミング（OOP）の基礎">オブジェクト指向プログラミング（OOP）の基礎</option>
+                                <option value="JavaでのWeb開発">JavaでのWeb開発</option>
+                            </select>
+                            <button type="button" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded" onclick="addUnit()">ユニット追加</button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">登録</button>
+                    </div>
+                </form>
             </div>
 
             <a href="admin_dashboard.html" class="text-blue-500 underline">>> 管理者ダッシュボードへ戻る</a>
@@ -65,5 +82,27 @@
     <!-- JavaScriptファイルのロード -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/script.js" defer></script>
+    <script>
+        function addUnit() {
+            const unitSelect = document.getElementById('unit-select');
+            const selectedUnit = unitSelect.options[unitSelect.selectedIndex].text;
+            if (selectedUnit) {
+                const unitsContainer = document.getElementById('units');
+                const unitDiv = document.createElement('div');
+                unitDiv.classList.add('flex', 'mb-2');
+                unitDiv.innerHTML = `
+                    <input type="text" name="units[]" value="${selectedUnit}" class="w-full px-3 py-2 border rounded" readonly>
+                    <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded" onclick="removeUnit(this)">削除</button>
+                `;
+                unitsContainer.appendChild(unitDiv);
+                unitSelect.selectedIndex = 0;
+            }
+        }
+
+        function removeUnit(button) {
+            const unitDiv = button.parentElement;
+            unitDiv.remove();
+        }
+    </script>
 </body>
 </html>

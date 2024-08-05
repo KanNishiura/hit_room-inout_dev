@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コース管理</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">コース管理</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="flex justify-end mb-4">
+                <a href="course_create.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コース新規登録</a>
+            </div>
+
+            <div class="bg-white shadow-md rounded p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">コース一覧</h2>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="border p-2">ID</th>
+                            <th class="border p-2">コース名</th>
+                            <th class="border p-2">コース種別</th>
+                            <th class="border p-2">削除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2">1</td>
+                            <td class="border p-2">
+                                <a href="course_detail.html" class="text-blue-500 hover:underline">【0708】Java基礎実践コース</a>
+                            </td>
+                            <td class="border p-2">IT</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">2</td>
+                            <td class="border p-2">
+                                <a href="course_detail.html" class="text-blue-500 hover:underline">【0092】クラウドエンジニア基礎コース</a>
+                            </td>
+                            <td class="border p-2">IT</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">
+                                <a href="course_detail.html" class="text-blue-500 hover:underline">【0201】Webデザインコース</a>
+                            </td>
+                            <td class="border p-2">Web</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">4</td>
+                            <td class="border p-2">
+                                <a href="course_detail.html" class="text-blue-500 hover:underline">【0113】Python基礎コース</a>
+                            </td>
+                            <td class="border p-2">IT</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <!-- 他のコースを追加 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>
