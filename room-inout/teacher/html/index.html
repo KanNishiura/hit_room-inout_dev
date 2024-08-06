@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ホーム画面</title>
     <script src="https://cdn.tailwindcss.com/"></script>
-    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-green-50 h-screen flex flex-col">
+<body class="bg-gray-100 h-screen flex flex-col">
 
     <!-- ヘッダー -->
-    <header class="bg-green-500 text-white p-4 flex flex-col justify-between h-24">
-        <div class="text-xl font-bold"><a href="../../../room-inout/room-inout.html" >講師-出退勤管理システム</a></div>
-        <div class="flex justify-between items-center mt-2">
-            <div class="text-lg">林太郎 さん</div>
+    <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold"><a href="../../../room-inout/room-inout.html">講師-出退勤管理システム</a></div>
+        <div class="flex items-center">
+            <div class="text-lg mr-4">林太郎 さん</div>
             <a href="#" class="text-sm text-green-200 hover:underline">ログアウト</a>
         </div>
     </header>
@@ -21,27 +21,86 @@
     <!-- ボディ -->
     <main class="flex-1 p-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-gray-800">林太郎 さんこんにちは</h1>
+            <h1 class="text-3xl font-bold mb-4 text-gray-800">林太郎 さんこんにちは</h1>
             <div class="mb-6">
                 <div id="current-date" class="text-gray-600 mb-2 font-medium">日付: </div>
                 <label for="current-time" class="block text-gray-600 mb-2">現在時刻</label>
-                <input type="text" id="current-time" name="current-time" class="w-full px-3 py-2 border border-gray-300 rounded">
+                <input type="text" id="current-time" name="current-time" class="w-full px-3 py-2 border border-gray-300 rounded" readonly>
             </div>
             <div class="flex gap-4 mb-4">
-                <a href="record.html" class="flex-1 w-full bg-green-400 text-white py-2 rounded-lg hover:bg-green-500 text-center">出勤登録</a>
+                <button id="attendance-button" class="flex-1 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 text-center flex items-center justify-center">
+                    <i class="fas fa-sign-in-alt mr-2"></i>出勤登録
+                </button>
+            </div>
+            <div id="email-notification" class="hidden text-blue-600 font-bold mb-4 flex items-center">
+                <i class="fas fa-envelope mr-2"></i><span id="notification-text"></span>
             </div>
             <div class="flex gap-4">
-                <a href="record.html" class="flex-1 bg-green-300 text-gray-800 py-2 rounded-lg hover:bg-green-400 text-center">出退勤記録</a>
+                <a href="record.html" class="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 text-center flex items-center justify-center">
+                    <i class="fas fa-book mr-2"></i>出退勤記録
+                </a>
             </div>
         </div>
     </main>
 
     <!-- フッター -->
-    <footer class="bg-green-500 text-white p-4 text-center text-sm">
-        &copy; HIT 2024
+    <footer>
+        <div class="bg-green-600 text-white w-full text-center flex justify-between px-4 py-2">
+            <p>　</p>
+            <p>&copy; 2024 入退室管理システム</p>
+            <p class="p-1">事業再構築</p>
+        </div>
     </footer>
 
     <!-- JavaScriptを最後に読み込む -->
-    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const attendanceButton = document.getElementById('attendance-button');
+            const emailNotification = document.getElementById('email-notification');
+            const notificationText = document.getElementById('notification-text');
+
+            attendanceButton.addEventListener('click', function() {
+                const now = new Date();
+                const date = now.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+                const time = now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+
+                if (attendanceButton.textContent.includes('出勤登録')) {
+                    attendanceButton.innerHTML = '<i class="fas fa-sign-out-alt mr-2"></i>退勤登録';
+                    attendanceButton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    attendanceButton.classList.add('bg-red-500', 'hover:bg-red-600');
+                    sendEmail('出勤', date, time);
+                } else {
+                    attendanceButton.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>出勤登録';
+                    attendanceButton.classList.remove('bg-red-500', 'hover:bg-red-600');
+                    attendanceButton.classList.add('bg-green-500', 'hover:bg-green-600');
+                    sendEmail('退勤', date, time);
+                }
+            });
+
+            function updateTime() {
+                const now = new Date();
+                const currentTime = now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+                const currentDate = now.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('current-time').value = currentTime;
+                document.getElementById('current-date').textContent = `日付: ${currentDate}`;
+            }
+
+            function sendEmail(action, date, time) {
+                // メール送信処理をここに追加
+                // 実際のメール送信処理はサーバーサイドで実行されるべきです。
+                // ここではダミーの処理として setTimeout を使用しています。
+                setTimeout(() => {
+                    notificationText.textContent = `${date}、${time}に${action}しました。`;
+                    emailNotification.classList.remove('hidden');
+                    setTimeout(() => {
+                        emailNotification.classList.add('hidden');
+                    }, 5000);
+                }, );
+            }
+
+            setInterval(updateTime, 1000);
+            updateTime();
+        });
+    </script>
 </body>
 </html>
