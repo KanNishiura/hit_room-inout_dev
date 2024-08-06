@@ -23,46 +23,42 @@
         </aside>
 
         <!-- メインコンテンツ -->
-        <main class="flex-grow">
-            <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">TOP</h1>
-                <div class="hamburger my-auto" id="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div></div>
-            <div class="flex justify-between space-x-4 mb-4">
-                <a href="student_records.html" class="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500 flex-1 text-center">生徒の入退室記録一覧</a>
-                <a href="teacher_records.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex-1 text-center">講師の出退勤一覧</a>
-            </div>
-        
-            <div class="flex justify-between space-x-4">
-                <a href="mass_mail.html" class="bg-blue-400 text-white px-4 rounded hover:bg-blue-500 text-center flex-1" style="height: 40px; line-height: 40px;">メール一斉送信</a>
-            </div>
-        
-            <div class="mt-8">
-                <h2 class="text-xl font-bold mb-4">NEWS</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本町5号館</h3>
-                        <p class="text-gray-600">2024/08/03 全員入室しました。</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
-                    </div>
-                    <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本部</h3>
-                        <p class="text-gray-600">2024/08/03 ホームページが更新完了しました。追加項目は...</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
-                    </div>
-                    <div class="bg-white shadow-md rounded-lg p-4">
-                        <h3 class="font-semibold text-lg mb-2">本町8号室</h3>
-                        <p class="text-gray-600">2024/08/03 全員入室しました。</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-2 block">続きを読む</a>
-                    </div>
-                    <!-- 他のニュースカードをここに追加 -->
-                </div>
-            </div>
+        <main class="flex-grow bg-white">
+                    <!-- 最新のお知らせ -->
+                    <a href="news.html">
+        <div class="bg-white shadow-md rounded-lg p-4 mb-8 hover:bg-gray-100">
+            <h3 class="font-semibold text-lg mb-2">                <i class="fas fa-bullhorn fa-2x mr-4 text-green-600"></i>最新のお知らせ</h3>
+            <p class="text-gray-600" id="latest-news-content">パスワード変更のお願い</p>
+            <p class="text-right" id="latest-news-date">2024/06/01</p>
+        </div></a>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+
+            <a href="student_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-graduate fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">生徒管理</div>
+            </a>
+            <a href="guardian_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-friends fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">保護者管理</div>
+            </a>
+            <a href="classroom_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-school fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">教室管理</div>
+            </a>
+            <a href="teacher_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-chalkboard-teacher fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">講師管理</div>
+            </a>
+            <a href="admin_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-shield fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">管理者管理</div>
+            </a>
+            <a href="mypage.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="far fa-user-circle fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">マイページ</div>
+            </a>
+        </div>
         </main>
         
 
