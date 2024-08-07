@@ -90,87 +90,87 @@
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="nav-link active" id="nav-mark-tab" data-bs-toggle="tab" data-bs-target="#nav-mark" type="button" role="tab" aria-controls="mark" aria-selected="true">コース進捗</button>
-                  <button class="nav-link" id="nav-use-tab" data-bs-toggle="tab" data-bs-target="#nav-use" type="button" role="tab" aria-controls="nav-use" aria-selected="true">利用履歴</button>
-                  <!-- <button class="nav-link" id="nav-movie-tab" data-bs-toggle="tab" data-bs-target="#nav-movie" type="button" role="tab" aria-controls="nav-movie" aria-selected="false">動画視聴履歴</button>
-                  <button class="nav-link" id="nav-test-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="true">テスト結果</button> -->
+                  <button class="nav-link active" id="nav-mark-tab" data-bs-toggle="tab" data-bs-target="#nav-mark" type="button" role="tab" aria-controls="mark" aria-selected="true">学習状況</button>
+                  <button class="nav-link" id="nav-use-tab" data-bs-toggle="tab" data-bs-target="#nav-use" type="button" role="tab" aria-controls="nav-use" aria-selected="true">課題クリア状況</button>
+                  <button class="nav-link" id="nav-movie-tab" data-bs-toggle="tab" data-bs-target="#nav-movie" type="button" role="tab" aria-controls="nav-movie" aria-selected="false">成績状況</button> 
+                  <!-- <button class="nav-link" id="nav-test-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="true">テスト結果</button> -->
                 </div>
               </nav>
               <div class="tab-content" id="nav-tabContent">
-                                <!-- コース進捗 -->
-                                <div class="tab-pane fade show active mt-4" id="nav-mark" role="tabpanel" aria-labelledby="nav-mark-tab" tabindex="0">
-                                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    <div id="unit-card-1" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between border-green-500 bg-green-100">
-                                        <div>
-                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=1'">
-                                                <span id="checkmark-1" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
-                                                1. Javaの基本
-                                            </h2>
-                                            <p class="mb-4">このユニットでは、Javaの基本的な概念とプログラミングの基礎を学びます。</p>
-                                        </div>
-                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-1', 6, 'checkmark-1', 'unit-card-1')">
-                                            <div id="progress-bar-1" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
-                                            <span id="progress-percent-1" class="absolute inset-0 text-center text-white">100%</span>
-                                        </div>
-                                    </div>
-                
-                                    <div id="unit-card-2" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
-                                        <div>
-                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=2'">
-                                                <span id="checkmark-2" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
-                                                2. Web開発基礎
-                                            </h2>
-                                            <p class="mb-4">このユニットでは、HTML、CSS、JavaScriptの基本を学び、簡単なWebページを作成します。</p>
-                                        </div>
-                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-2', 6, 'checkmark-2', 'unit-card-2')">
-                                            <div id="progress-bar-2" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
-                                            <span id="progress-percent-2" class="absolute inset-0 text-center text-white">100%</span>
-                                        </div>
-                                    </div>
-                
-                                    <div id="unit-card-3" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
-                                        <div>
-                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=3'">
-                                                <span id="checkmark-3" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
-                                                3. 制御構造
-                                            </h2>
-                                            <p class="mb-4">このユニットでは、Javaの制御構造について学びます。</p>
-                                        </div>
-                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-3', 6, 'checkmark-3', 'unit-card-3')">
-                                            <div id="progress-bar-3" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
-                                            <span id="progress-percent-3" class="absolute inset-0 text-center text-white">100%</span>
-                                        </div>
-                                    </div>
-                
-                                    <div id="unit-card-4" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
-                                        <div>
-                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=4'">
-                                                <span id="checkmark-4" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
-                                                4. オブジェクト指向プログラミング（OOP）の基礎
-                                            </h2>
-                                            <p class="mb-4">このユニットでは、オブジェクト指向プログラミングの基本概念とその適用方法を学びます。</p>
-                                        </div>
-                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-4', 6, 'checkmark-4', 'unit-card-4')">
-                                            <div id="progress-bar-4" class="h-6 rounded-full bg-green-500" style="width: 90%;"></div>
-                                            <span id="progress-percent-4" class="absolute inset-0 text-center text-white">90%</span>
-                                        </div>
-                                    </div>
-                
-                                    <div id="unit-card-5" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
-                                        <div>
-                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=5'">
-                                                <span id="checkmark-5" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
-                                                5. JavaでのWeb開発
-                                            </h2>
-                                            <p class="mb-4">このユニットでは、Javaを使ったWebアプリケーションの開発方法を学びます。</p>
-                                        </div>
-                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-5', 6, 'checkmark-5', 'unit-card-5')">
-                                            <div id="progress-bar-5" class="h-6 rounded-full" style="width: 0%;"></div>
-                                            <span id="progress-percent-5" class="absolute inset-0 text-center text-white">0%</span>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
+                <!-- 学習状況 -->
+                <div class="tab-pane fade show active mt-4" id="nav-mark" role="tabpanel" aria-labelledby="nav-mark-tab" tabindex="0">
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div id="unit-card-1" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between border-green-500 bg-green-100">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=1'">
+                                <span id="checkmark-1" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                1. プログラミングの基礎
+                            </h2>
+                            <p class="mb-4">このユニットでは、プログラミングの基本概念と簡単なコードの書き方を学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-1', 6, 'checkmark-1', 'unit-card-1')">
+                            <div id="progress-bar-1" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                            <span id="progress-percent-1" class="absolute inset-0 text-center text-white">100%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-2" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=2'">
+                                <span id="checkmark-2" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                2. データ型と変数
+                            </h2>
+                            <p class="mb-4">このユニットでは、さまざまなデータ型と変数の使い方を学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-2', 6, 'checkmark-2', 'unit-card-2')">
+                            <div id="progress-bar-2" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                            <span id="progress-percent-2" class="absolute inset-0 text-center text-white">100%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-3" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=3'">
+                                <span id="checkmark-3" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                3. 制御構造
+                            </h2>
+                            <p class="mb-4">このユニットでは、if文やループなどの制御構造について学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-3', 6, 'checkmark-3', 'unit-card-3')">
+                            <div id="progress-bar-3" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                            <span id="progress-percent-3" class="absolute inset-0 text-center text-white">100%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-4" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=4'">
+                                <span id="checkmark-4" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                4. 関数とメソッド
+                            </h2>
+                            <p class="mb-4">このユニットでは、関数やメソッドの使い方とその利便性について学びます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-4', 6, 'checkmark-4', 'unit-card-4')">
+                            <div id="progress-bar-4" class="h-6 rounded-full bg-green-500" style="width: 90%;"></div>
+                            <span id="progress-percent-4" class="absolute inset-0 text-center text-white">90%</span>
+                        </div>
+                    </div>
+
+                    <div id="unit-card-5" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=5'">
+                                <span id="checkmark-5" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                5. 簡単なプロジェクト
+                            </h2>
+                            <p class="mb-4">このユニットでは、学んだ内容を基に簡単なプロジェクトを作成し、実践的なスキルを磨きます。</p>
+                        </div>
+                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-5', 6, 'checkmark-5', 'unit-card-5')">
+                            <div id="progress-bar-5" class="h-6 rounded-full" style="width: 0%;"></div>
+                            <span id="progress-percent-5" class="absolute inset-0 text-center text-white">0%</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- 利用履歴 -->
                 <div class="tab-pane fade" id="nav-use" role="tabpanel" aria-labelledby="nav-use-tab" tabindex="0">
                   <div class="p-3">
