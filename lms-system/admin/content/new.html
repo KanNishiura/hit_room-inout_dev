@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HITスクール管理 : コンテンツ管理</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+  <style>
+    .flatpickr-current-month {
+      display: flex;
+      justify-content: center;
+    }
+    .cur-year {
+      order: 1
+    }
+    .cur-month:before  {
+      content: "年 "
+    }
+    .cur-month {
+      order: 2
+    }
+  </style>
+</head>
+<body class="h-100">
+  <!— ヘッダー -->
+  <header class="w-100 d-flex px-3 justify-content-between align-items-center " style="height: 50px">
+    <h1 class="fs-4">HITスクール管理画面</h1>
+  </header>
+
+  <div class="d-flex flex-row w-100" style="height: calc(100% - 50px)">
+    <!— サイドメニュー -->
+    <nav class="nav flex-column p-3" style="width: 230px">
+      <a class="nav-link" href="../course/index.html">コース管理</a>
+      <a class="nav-link" href="../user/index.html">ユーザ管理</a>
+      <hr/>
+      <a class="nav-link" href="../staff/index.html">スタッフ管理</a>
+      <a class="nav-link" href="../school/index.html">学校管理</a>
+      <a class="nav-link" href="../teacher/index.html">講師管理</a>
+      <hr/>
+      <a class="nav-link" href="../index.html">ログアウト</a>
+    </nav>
+
+    <!— メインコンテンツ -->
+    <main class="w-100 h-100">
+      <!— パンくず -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../top.html">トップ</a></li>
+          <li class="breadcrumb-item"><a href="../course/index.html">コース管理</a></li>
+          <li class="breadcrumb-item"><a href="../course/detail.html">コース詳細</a></li>
+          <li class="breadcrumb-item"><a href="./detail.html">コンテンツ管理</a></li>
+          <li class="breadcrumb-item active" aria-current="page">新規コンテンツ登録</li>
+        </ol>
+      </nav>
+
+      <!— 入力項目 -->
+      <div class="p-3">
+        <form method="post" action="./detail.html">
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="thumbnail">サムネイル</label>
+            <input type="file" class="form-control" id="thumbnail" name="thumbnail" value="" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="name">タイトル</label>
+            <input type="text" class="form-control" id="name" name="name" value="" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="description">説明文</label>
+            <textarea class="form-control" id="description" rows="5"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="time">時間</label>
+            <input type="text" class="form-control" id="time" name="time" value="" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="url">動画保存場所URL</label>
+            <input type="text" class="form-control" id="url" name="url" value="" />
+          </div>
+          <div class="input-group mb-3">
+          </div>
+          <div class="row">
+            <div class="col-4 mx-auto">
+              <div class="d-flex align-items-center justify-content-evenly">
+                <button type="button" class="btn btn-secondary position-relative" onclick="location.href='./detail.html'">戻　る</button>
+              </div>
+            </div>
+            <div class="col-4 mx-auto">
+            </div>
+            <div class="col-4 mx-auto">
+              <div class="d-flex align-items-center justify-content-evenly">
+                <button type="submit" class="btn btn-primary">登録する</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

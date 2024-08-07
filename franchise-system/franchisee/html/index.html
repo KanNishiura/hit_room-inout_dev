@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow bg-white">
+                    <!-- 最新のお知らせ -->
+                    <a href="news.html">
+        <div class="bg-white shadow-md rounded-lg p-4 mb-8 hover:bg-gray-100">
+            <h3 class="font-semibold text-lg mb-2">                <i class="fas fa-bullhorn fa-2x mr-4 text-green-600"></i>最新のお知らせ</h3>
+            <p class="text-gray-600" id="latest-news-content">パスワード変更のお願い</p>
+            <p class="text-right" id="latest-news-date">2024/06/01</p>
+        </div></a>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+
+            <a href="student_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-graduate fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">生徒管理</div>
+            </a>
+            <a href="guardian_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-friends fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">保護者管理</div>
+            </a>
+            <a href="classroom_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-school fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">教室管理</div>
+            </a>
+            <a href="teacher_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-chalkboard-teacher fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">講師管理</div>
+            </a>
+            <a href="admin_account_management.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="fas fa-user-shield fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">管理者管理</div>
+            </a>
+            <a href="mypage.html" class="bg-white shadow-md rounded-lg p-4 flex items-center hover:bg-gray-100 transition">
+                <i class="far fa-user-circle fa-2x mr-4 text-green-600"></i>
+                <div class="text-lg font-semibold">マイページ</div>
+            </a>
+        </div>
+        </main>
+        
+
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+
+</body>
+</html>

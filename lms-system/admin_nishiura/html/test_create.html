@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考査問題登録</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .code-block {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">定期考査問題 登録</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <form id="exam-form" class="bg-gray-100 shadow-md rounded p-6 mb-6">
+                <div class="mb-4">
+                    <label for="exam-name" class="block text-gray-700">考査名</label>
+                    <input type="text" id="exam-name" name="exam_name" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div id="exam-form-container">
+                    <div class="bg-white shadow-md rounded p-6 mb-6 exam-card">
+                        <div class="mb-4">
+                            <label for="question-1" class="block text-gray-700">問題文</label>
+                            <textarea id="question-1" name="question" class="w-full px-3 py-2 border rounded"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="code-1" class="block text-gray-700">コード（必要な場合）</label>
+                            <textarea id="code-1" name="code" class="w-full px-3 py-2 border rounded code-block"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="optionA-1" class="block text-gray-700">選択肢 A</label>
+                            <input type="text" id="optionA-1" name="optionA" class="w-full px-3 py-2 border rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="optionB-1" class="block text-gray-700">選択肢 B</label>
+                            <input type="text" id="optionB-1" name="optionB" class="w-full px-3 py-2 border rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="optionC-1" class="block text-gray-700">選択肢 C</label>
+                            <input type="text" id="optionC-1" name="optionC" class="w-full px-3 py-2 border rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="optionD-1" class="block text-gray-700">選択肢 D</label>
+                            <input type="text" id="optionD-1" name="optionD" class="w-full px-3 py-2 border rounded">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="textarea-1" class="block text-gray-700">記述式回答（必要な場合）</label>
+                            <input type="checkbox" id="textarea-1" name="textarea" class="mr-2 leading-tight">
+                            <span class="text-gray-700">記述式回答欄を追加する</span>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button type="button" class="px-4 py-2 bg-red-500 text-white rounded" onclick="removeExamCard(this)">削除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end mb-4">
+                    <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded" onclick="addExamCard()">問題追加</button>
+                </div>
+
+                <div class="flex justify-end">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">登録</button>
+                </div>
+            </form>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        let examCounter = 1;
+
+        function addExamCard() {
+            examCounter++;
+            const examFormContainer = document.getElementById('exam-form-container');
+            const examCard = document.createElement('div');
+            examCard.classList.add('bg-white', 'shadow-md', 'rounded', 'p-6', 'mb-6', 'exam-card');
+            examCard.innerHTML = `
+                <div class="mb-4">
+                    <label for="question-${examCounter}" class="block text-gray-700">問題文</label>
+                    <textarea id="question-${examCounter}" name="question" class="w-full px-3 py-2 border rounded"></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label for="code-${examCounter}" class="block text-gray-700">コード（必要な場合）</label>
+                    <textarea id="code-${examCounter}" name="code" class="w-full px-3 py-2 border rounded code-block"></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label for="optionA-${examCounter}" class="block text-gray-700">選択肢 A</label>
+                    <input type="text" id="optionA-${examCounter}" name="optionA" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label for="optionB-${examCounter}" class="block text-gray-700">選択肢 B</label>
+                    <input type="text" id="optionB-${examCounter}" name="optionB" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label for="optionC-${examCounter}" class="block text-gray-700">選択肢 C</label>
+                    <input type="text" id="optionC-${examCounter}" name="optionC" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label for="optionD-${examCounter}" class="block text-gray-700">選択肢 D</label>
+                    <input type="text" id="optionD-${examCounter}" name="optionD" class="w-full px-3 py-2 border rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label for="textarea-${examCounter}" class="block text-gray-700">記述式回答（必要な場合）</label>
+                    <input type="checkbox" id="textarea-${examCounter}" name="textarea" class="mr-2 leading-tight">
+                    <span class="text-gray-700">記述式回答欄を追加する</span>
+                </div>
+
+                <div class="flex justify-end">
+                    <button type="button" class="px-4 py-2 bg-red-500 text-white rounded" onclick="removeExamCard(this)">削除</button>
+                </div>
+            `;
+            examFormContainer.appendChild(examCard);
+        }
+
+        function removeExamCard(button) {
+            const examCard = button.closest('.exam-card');
+            examCard.remove();
+        }
+
+        function submitExams() {
+            // フォームデータの収集と送信のロジックをここに追加します
+        }
+    </script>
+</body>
+</html>

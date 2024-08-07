@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HITスクール管理 : 講師管理</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+  <style>
+    .flatpickr-current-month {
+      display: flex;
+      justify-content: center;
+    }
+    .cur-year {
+      order: 1
+    }
+    .cur-month:before  {
+      content: "年 "
+    }
+    .cur-month {
+      order: 2
+    }
+  </style>
+</head>
+<body class="h-100">
+  <!— ヘッダー -->
+  <header class="w-100 d-flex px-3 justify-content-between align-items-center " style="height: 50px">
+    <h1 class="fs-4">HITスクール管理画面</h1>
+  </header>
+
+  <div class="d-flex flex-row w-100" style="height: calc(100% - 50px)">
+    <!— サイドメニュー -->
+    <nav class="nav flex-column p-3" style="width: 230px">
+      <a class="nav-link" href="../course/index.html">コース管理</a>
+      <a class="nav-link" href="../user/index.html">ユーザ管理</a>
+      <hr/>
+      <a class="nav-link" href="../staff/index.html">スタッフ管理</a>
+      <a class="nav-link" href="../school/index.html">学校管理</a>
+      <a class="nav-link" href="../teacher/index.html">講師管理</a>
+      <hr/>
+      <a class="nav-link" href="../index.html">ログアウト</a>
+    </nav>
+
+    <!— メインコンテンツ -->
+    <main class="w-100 h-100">
+      <!— パンくず -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../top.html">トップ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">講師管理</li>
+        </ol>
+      </nav>
+
+      <div class="p-3">
+        <!-- 新規登録 -->
+        <div class="col-4" style="margin-bottom: 20px">
+          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalUpload">新規登録（CSV）</button>
+        </div>
+
+        <!-- 新規登録ダイアログ -->
+        <div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="modalUpload" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalUpload">講師登録</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="csv">CSVファイル</label>
+                  <input type="file" class="form-control" id="csv" name="csv" value="" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">登録する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 編集ダイアログ -->
+        <div class="modal fade" id="modalEditor" tabindex="-1" aria-labelledby="modalEditor" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditor">講師編集</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="school">所属</label>
+                  <select class="form-select" multiple id="school" name="school">
+                    <option value="1" selected>天満橋校</option>
+                    <option value="2">本町校</option>
+                    <option value="3">心斎橋校</option>
+                    <option value="4">三宮校</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="school">科目</label>
+                  <select class="form-select" multiple id="school" name="school">
+                    <option value="1" selected>IT</option>
+                    <option value="2" selected>クラウド</option>
+                    <option value="3">WEBデザイン</option>
+                    <option value="4">動画編集</option>
+                    <option value="5">キャリコン</option>
+                    <option value="6">ネイル</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="lastName">姓</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" value="木内" />
+                </div>
+                <div class="input-group mb-3">
+                  <label class="col-form-label col-sm-2" for="firstName">名</label>
+                  <input type="text" class="form-control" id="firstName" name="firstName" value="和也" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">登録する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 削除確認ダイアログ -->
+        <div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="modalConfirm" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalConfirm">削除確認</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>削除してもかまいませんか？</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">削除する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 一覧 -->
+        <!--  role="button" : カーソル形状変更のため -->
+        <table class="table table-hover table-striped" id="teacherList">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">所属</th>
+              <th scope="col">科目</th>
+              <th scope="col">姓</th>
+              <th scope="col">名</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr role="button">
+              <td>天満橋校</td>
+              <td>IT,クラウド</td>
+              <td>木内</td>
+              <td>和也</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校</td>
+              <td>IT</td>
+              <td>林</td>
+              <td>太郎</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>本町校</td>
+              <td>WEBデザイン</td>
+              <td>隅田</td>
+              <td>進二</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>心斎橋校</td>
+              <td>WEBデザイン</td>
+              <td>大橋</td>
+              <td>弘一</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>心斎橋校</td>
+              <td>WEBデザイン</td>
+              <td>大鶴</td>
+              <td>綾美</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>本町校</td>
+              <td>WEBデザイン</td>
+              <td>楠</td>
+              <td>陽介</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>本町校</td>
+              <td>WEBデザイン,動画編集</td>
+              <td>髙島</td>
+              <td>春樹</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>三宮校</td>
+              <td>WEBデザイン,動画編集</td>
+              <td>米澤</td>
+              <td>優</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>三宮校</td>
+              <td>WEBデザイン</td>
+              <td>片岡</td>
+              <td>京将</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校,三宮校</td>
+              <td>キャリコン</td>
+              <td>小野</td>
+              <td>満</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校</td>
+              <td>キャリコン</td>
+              <td>川口</td>
+              <td>雅道</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校,三宮校</td>
+              <td>ネイル,キャリコン</td>
+              <td>安井</td>
+              <td>亜矢</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校</td>
+              <td>ネイル</td>
+              <td>増成</td>
+              <td>麻実</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+            <tr role="button">
+              <td>天満橋校</td>
+              <td>キャリコン</td>
+              <td>直林</td>
+              <td>裕</td>
+              <td>
+                <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script type="text/javascript">
+  function addRowHandlers() {
+    const table = document.getElementById("teacherList");
+    const rows = table.getElementsByTagName("tr");
+    // ヘッダーを除外するため1から開始
+    for (i = 1; i < rows.length; i++) {
+      const currentRow = table.rows[i];
+      const createClickHandler = 
+        function(row) {
+          return function(e) {
+            // 削除列で反応しないように
+            if ((e.target.cellIndex != undefined) && (e.target.cellIndex < 3)) {
+              const editor = new bootstrap.Modal(document.getElementById('modalEditor'));
+              editor.show();
+            }
+          };
+        };
+      currentRow.onclick = createClickHandler(currentRow);
+    }
+  }
+  window.onload = () => {
+    addRowHandlers();
+  }
+</script>
+
+</html>

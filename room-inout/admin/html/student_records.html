@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生徒の入退室記録一覧</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow pb-5">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">生徒の入退室記録一覧</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <label for="classFilter" class="block text-lg font-semibold mb-2">クラスでフィルタ:</label>
+                <select id="classFilter" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4">
+                    <option value="all">全てのクラス</option>
+                    <option value="本町5号館">本町5号館</option>
+                    <option value="本町8号館">本町8号館</option>
+                    <option value="天満橋201">天満橋201</option>
+                    <option value="天満橋202">天満橋202</option>
+                    <option value="天満橋203">天満橋203</option>
+                    <option value="心斎橋">心斎橋</option>
+                    <option value="三宮3階">三宮3階</option>
+                    <option value="三宮4階">三宮4階</option>
+                </select>
+            </div>
+
+
+
+            <table id="studentTable" class="min-w-full bg-white">
+                <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">名前</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">クラス名</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">日付</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">入室時刻</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">退室時刻</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">河内 陽太</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">久米 琴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">佐藤 奏</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">高橋 梨紗</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町8号館">
+                        <td class="py-2 px-4 border-b border-gray-300">伊藤 拓海</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">須藤 愛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">沖 大輝</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町8号館">
+                        <td class="py-2 px-4 border-b border-gray-300">小林 凛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">清水 里奈</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">渡辺 亜衣</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">黒田 剛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="天満橋201">
+                        <td class="py-2 px-4 border-b border-gray-300">山田 花</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">中村 由美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">加藤 航</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="天満橋201">
+                        <td class="py-2 px-4 border-b border-gray-300">石井 智</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">森本 美咲</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">川口 陽</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">清川 智子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">大野 直樹</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町8号館">
+                        <td class="py-2 px-4 border-b border-gray-300">竹田 美月</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">松本 涼</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="本町8号館">
+                        <td class="py-2 px-4 border-b border-gray-300">石川 和也</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:45</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:00</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">木村 彩</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    <tr data-class="天満橋201">
+                        <td class="py-2 px-4 border-b border-gray-300">藤田 直人</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">09:00</td>
+                        <td class="py-2 px-4 border-b border-gray-300">16:30</td>
+                    </tr>
+                    <tr data-class="本町5号館">
+                        <td class="py-2 px-4 border-b border-gray-300">三浦 亮</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2024-08-03</td>
+                        <td class="py-2 px-4 border-b border-gray-300">08:30</td>
+                        <td class="py-2 px-4 border-b border-gray-300">15:45</td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+            <h2 class="text-2xl font-bold mb-2 mt-5">月別入退室日数の集計</h2>
+            <div class=" mb-2 flex flex-wrap -mx-2">
+                <div class="w-full sm:w-1/2 px-2 mb-2 sm:mb-0">
+                    <label for="filterMonth" class="block text-lg font-semibold mb-2">月で検索:</label>
+                    <input type="month" id="filterMonth" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4">
+                </div>
+                <div class="w-full sm:w-1/2 px-2 flex items-end">
+                    <button id="filterMonthButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">集計を見る</button>
+                </div>
+            </div>
+            <div id="summaryTableContainer" class="mb-5">
+                <table id="summaryTable" class="min-w-full bg-white">
+                    <thead class="bg-gray-200 text-gray-600">
+                        <tr>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">名前</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">クラス名</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">入退室日数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- サマリデータはここに追加されます -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8">
+                <a href="index.html" class="underline px-4 py-2 rounded hover:text-blue-500">ダッシュボードへ戻る</a>
+            </div>
+        </div>
+    </main>
+    
+    
+
+
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+    <!-- フッター -->
+    <div id="footer"></div>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterMonthButton = document.getElementById('filterMonthButton');
+        const summaryTableBody = document.getElementById('summaryTable').querySelector('tbody');
+
+        filterMonthButton.addEventListener('click', () => {
+            const filterMonth = document.getElementById('filterMonth').value;
+            if (!filterMonth) {
+                alert("月を選択してください");
+                return;
+            }
+
+            const rows = document.querySelectorAll("#studentTable tbody tr");
+            const summaryData = {};
+
+            rows.forEach(row => {
+                const dateCell = row.cells[2].textContent.trim();
+                if (dateCell.startsWith(filterMonth)) {
+                    const name = row.cells[0].textContent.trim();
+                    const className = row.cells[1].textContent.trim();
+                    const key = `${name}_${className}`;
+
+                    if (!summaryData[key]) {
+                        summaryData[key] = { name, className, count: 0 };
+                    }
+                    summaryData[key].count++;
+                }
+            });
+
+            summaryTableBody.innerHTML = '';
+            for (const key in summaryData) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-2 px-4 border-b border-gray-300">${summaryData[key].name}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">${summaryData[key].className}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">${summaryData[key].count}</td>
+                `;
+                summaryTableBody.appendChild(row);
+            }
+        });
+    });
+</script>
+
+</html>

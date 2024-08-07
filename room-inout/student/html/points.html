@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポイント履歴</title>
     <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <link rel="stylesheet" href="../css/styles.css"> -->
 </head>
 <body class="bg-gray-50 h-screen flex flex-col">
@@ -22,63 +23,33 @@
     <main class="flex-1 p-8">
         <div class="mb-6 p-4 bg-white rounded-lg shadow-md">
             <div class="text-lg font-semibold text-gray-800">現在のポイント</div>
-            <div id="current-points" class="text-2xl font-bold text-gray-900">700</div>
+            <div id="current-points" class="text-2xl font-bold text-gray-900">5</div>
         </div>
         
         <h1 class="text-2xl font-bold mb-6 text-gray-800">ポイント履歴</h1>
-        <div class="space-y-4">
-            <!-- ポイント履歴カード1 -->
-            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <div class="space-y-2">
-                    <div class="text-gray-700 font-semibold">2024-07-15</div>
-                    <div>取得ポイント：100</div>
-                    <div>使用ポイント：0</div>
-                </div>
-                <div class="text-gray-700 font-semibold">残高：100</div>
-            </div>
-
-            <!-- ポイント履歴カード2 -->
-            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <div class="space-y-2">
-                    <div class="text-gray-700 font-semibold">2024-07-16</div>
-                    <div>取得ポイント：200</div>
-                    <div>使用ポイント：0</div>
-                </div>
-                <div class="text-gray-700 font-semibold">残高：300</div>
-            </div>
-
-            <!-- ポイント履歴カード3 -->
-            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <div class="space-y-2">
-                    <div class="text-gray-700 font-semibold">2024-07-17</div>
-                    <div>取得ポイント：150</div>
-                    <div>使用ポイント：0</div>
-                </div>
-                <div class="text-gray-700 font-semibold">残高：450</div>
-            </div>
-
-            <!-- ポイント履歴カード4 -->
-            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <div class="space-y-2">
-                    <div class="text-gray-700 font-semibold">2024-07-18</div>
-                    <div>取得ポイント：50</div>
-                    <div>使用ポイント：0</div>
-                </div>
-                <div class="text-gray-700 font-semibold">残高：500</div>
-            </div>
-
-            <!-- ポイント履歴カード5 -->
-            <div class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-                <div class="space-y-2">
-                    <div class="text-gray-700 font-semibold">2024-07-19</div>
-                    <div>取得ポイント：200</div>
-                    <div>使用ポイント：0</div>
-                </div>
-                <div class="text-gray-700 font-semibold">残高：700</div>
-            </div>
+        <div class="space-y-4" id="points-history">
+            <!-- ポイント履歴カード (ここにJavaScriptで追加されます) -->
         </div>
         <div class="mt-6">
             <a href="index.html" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400">戻る</a>
+        </div>
+
+        <h2 class="text-2xl font-bold mt-8 mb-4 text-gray-800">ポイント交換表</h2>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <ul class="list-disc list-inside">
+                <li class="flex justify-between items-center mb-2">
+                    <span>10ポイントでポッキー</span>
+                    <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 use-points" data-points="10">交換</button>
+                </li>
+                <li class="flex justify-between items-center mb-2">
+                    <span>5ポイントでビスコ</span>
+                    <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 use-points" data-points="5">交換</button>
+                </li>
+                <li class="flex justify-between items-center mb-2">
+                    <span>3ポイントでうまい棒</span>
+                    <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 use-points" data-points="3">交換</button>
+                </li>
+            </ul>
         </div>
     </main>
 
@@ -87,6 +58,67 @@
         &copy; HIT 2024
     </footer>
 
-    <script src="../js/points.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pointsHistory = [
+                { date: '2024-08-03', earned: 1, used: 0, balance: 5 },
+                { date: '2024-07-27', earned: 1, used: 0, balance: 4 },
+                { date: '2024-07-20', earned: 1, used: 0, balance: 3 },
+                { date: '2024-07-13', earned: 1, used: 3, balance: 2 },
+                { date: '2024-07-06', earned: 1, used: 0, balance: 4 }
+            ];
+
+            const pointsHistoryContainer = document.getElementById('points-history');
+            pointsHistory.forEach(record => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-lg shadow-md flex justify-between items-center';
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="text-gray-700 font-semibold">${record.date}</div>
+                        <div>取得ポイント：${record.earned}</div>
+                        <div>使用ポイント：${record.used}</div>
+                    </div>
+                    <div class="text-gray-700 font-semibold">残高：${record.balance}</div>
+                `;
+                pointsHistoryContainer.appendChild(card);
+            });
+
+            document.querySelectorAll('.use-points').forEach(button => {
+                button.addEventListener('click', function() {
+                    const points = parseInt(this.getAttribute('data-points'));
+                    const currentPointsElement = document.getElementById('current-points');
+                    let currentPoints = parseInt(currentPointsElement.textContent);
+
+                    if (currentPoints >= points) {
+                        currentPoints -= points;
+                        currentPointsElement.textContent = currentPoints;
+
+                        // Add to points history
+                        const newRecord = {
+                            date: new Date().toISOString().split('T')[0],
+                            earned: 0,
+                            used: points,
+                            balance: currentPoints
+                        };
+                        pointsHistory.unshift(newRecord);
+
+                        const newCard = document.createElement('div');
+                        newCard.className = 'bg-white p-4 rounded-lg shadow-md flex justify-between items-center';
+                        newCard.innerHTML = `
+                            <div class="space-y-2">
+                                <div class="text-gray-700 font-semibold">${newRecord.date}</div>
+                                <div>取得ポイント：${newRecord.earned}</div>
+                                <div>使用ポイント：${newRecord.used}</div>
+                            </div>
+                            <div class="text-gray-700 font-semibold">残高：${newRecord.balance}</div>
+                        `;
+                        pointsHistoryContainer.insertBefore(newCard, pointsHistoryContainer.firstChild);
+                    } else {
+                        alert('ポイントが足りません');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ管理</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">コンテンツ管理</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="flex justify-end mb-4">
+                <a href="content_create.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コンテンツ新規登録</a>
+            </div>
+
+            <div class="bg-white shadow-md rounded p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">コンテンツ一覧</h2>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="border p-2">ID</th>
+                            <th class="border p-2">コンテンツ名</th>
+                            <th class="border p-2">ユニット名</th>
+                            <th class="border p-2">種別</th>
+                            <th class="border p-2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2">1</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">Javaとは何か？</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">2</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">開発環境のセットアップ</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">3</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">最初のプログラム「Hello World」</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">4</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">基本的なデータ型と変数</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">5</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">演算子と式</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">6</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">簡単な計算プログラムの作成</a>
+                            </td>
+                            <td class="border p-2">Javaの基本</td>
+                            <td class="border p-2">課題</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">7</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">HTMLの基本</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">8</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">CSSの基本</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">9</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">JavaScriptの基本</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">10</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">フロントエンドとバックエンドの基本概念</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">11</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">Webページの作成とデプロイ</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">12</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">シンプルなWebページの作成</a>
+                            </td>
+                            <td class="border p-2">Web開発基礎</td>
+                            <td class="border p-2">課題</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">13</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">条件分岐（if文、switch文）</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">14</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">繰り返し（for文、while文、do-while文）</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">15</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">ネストされた制御構造</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">16</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">配列の基本</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">17</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">拡張for文</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">18</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">フィボナッチ数列を計算するプログラムの作成</a>
+                            </td>
+                            <td class="border p-2">制御構造</td>
+                            <td class="border p-2">課題</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">19</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">クラスとオブジェクト</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">20</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">メソッドの定義と呼び出し</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">21</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">コンストラクタと初期化</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">22</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">アクセス修飾子とカプセル化</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">23</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">継承とポリモーフィズム</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">24</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">シンプルなクラス階層を設計・実装</a>
+                            </td>
+                            <td class="border p-2">オブジェクト指向プログラミング（OOP）の基礎</td>
+                            <td class="border p-2">課題</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">25</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">サーブレットとJSPの導入</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">26</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">サーブレットのライフサイクル</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">27</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">フォームデータの処理</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">28</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">セッション管理とクッキー</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">29</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">データベース接続（JDBC）</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">動画</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">30</td>
+                            <td class="border p-2">
+                                <a href="content_detail.html" class="text-blue-500 hover:underline">シンプルなWebアプリケーションの作成</a>
+                            </td>
+                            <td class="border p-2">JavaでのWeb開発</td>
+                            <td class="border p-2">課題</td>
+                            <td class="border p-2">
+                                <a href="#" class="text-red-500 hover:underline ml-2">削除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="flex justify-center mt-4">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">前へ</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">3</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">次へ</a>
+                </nav>
+            </div>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline mt-4 block">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+</body>
+</html>

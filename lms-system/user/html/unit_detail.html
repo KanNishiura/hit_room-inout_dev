@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユニット詳細</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .progress-container {
+            position: relative;
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            height: 24px;
+            line-height: 24px;
+            color: white;
+            text-align: center;
+            background-color: #4caf50;
+            border-radius: 12px;
+            transition: width 0.3s;
+        }
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- ヘッダー -->
+    <div id="header"></div>
+    <div class="flex flex-grow">
+        <!-- メインコンテンツ -->
+        <main class="flex-grow p-6">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">ユニット詳細</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="container mx-auto p-6 bg-white shadow-md rounded-lg">
+                <h1 id="unit-title" class="text-3xl font-bold mb-4">ユニット詳細</h1>
+                <p id="unit-description" class="mb-4"></p>
+                <h2 class="text-2xl font-semibold mb-2">レッスン一覧</h2>
+                <ul id="lesson-list" class="list-disc pl-5"></ul>
+            </div>
+            <a href="mark_complete.html" class="text-blue-600 hover:underline mt-4 block">戻る</a>
+        </main>
+    </div>
+
+    <!-- サイドバー -->
+    <aside id="sidebar">
+        <div id="sidebar"></div>
+    </aside>
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const unit = urlParams.get('unit');
+
+        const unitData = {
+            1: {
+                title: 'Javaの基本',
+                description: 'このユニットでは、Javaの基本的な概念とプログラミングの基礎を学びます。',
+                lessons: [
+                    { title: 'Javaとは何か？', progress: 0 },
+                    { title: '開発環境のセットアップ', progress: 0 },
+                    { title: '最初のプログラム「Hello World」', progress: 0 },
+                    { title: '基本的なデータ型と変数', progress: 0 },
+                    { title: '演算子と式', progress: 0 }
+                ]
+            },
+            2: {
+                title: 'Web開発基礎',
+                description: 'このユニットでは、HTML、CSS、JavaScriptの基本を学び、簡単なWebページを作成します。',
+                lessons: [
+                    { title: 'HTMLの基本', progress: 0 },
+                    { title: 'CSSの基本', progress: 0 },
+                    { title: 'JavaScriptの基本', progress: 0 },
+                    { title: 'フロントエンドとバックエンドの基本概念', progress: 0 },
+                    { title: 'Webページの作成とデプロイ', progress: 0 }
+                ]
+            },
+            3: {
+                title: '制御構造',
+                description: 'このユニットでは、Javaの制御構造について学びます。',
+                lessons: [
+                    { title: '条件分岐（if文、switch文）', progress: 0 },
+                    { title: '繰り返し（for文、while文、do-while文）', progress: 0 },
+                    { title: 'ネストされた制御構造', progress: 0 },
+                    { title: '配列の基本', progress: 0 },
+                    { title: '拡張for文', progress: 0 }
+                ]
+            },
+            4: {
+                title: 'オブジェクト指向プログラミング（OOP）の基礎',
+                description: 'このユニットでは、オブジェクト指向プログラミングの基本概念とその適用方法を学びます。',
+                lessons: [
+                    { title: 'クラスとオブジェクト', progress: 0 },
+                    { title: 'メソッドの定義と呼び出し', progress: 0 },
+                    { title: 'コンストラクタと初期化', progress: 0 },
+                    { title: 'アクセス修飾子とカプセル化', progress: 0 },
+                    { title: '継承とポリモーフィズム', progress: 0 }
+                ]
+            },
+            5: {
+                title: 'JavaでのWeb開発',
+                description: 'このユニットでは、Javaを使ったWebアプリケーションの開発方法を学びます。',
+                lessons: [
+                    { title: 'サーブレットとJSPの導入', progress: 0 },
+                    { title: 'サーブレットのライフサイクル', progress: 0 },
+                    { title: 'フォームデータの処理', progress: 0 },
+                    { title: 'セッション管理とクッキー', progress: 0 },
+                    { title: 'データベース接続（JDBC）', progress: 0 }
+                ]
+            }
+        };
+
+        if (unitData[unit]) {
+            document.getElementById('unit-title').textContent = unitData[unit].title;
+            document.getElementById('unit-description').textContent = unitData[unit].description;
+            const lessonList = document.getElementById('lesson-list');
+            unitData[unit].lessons.forEach((lesson, index) => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('mb-4', 'cursor-pointer');
+
+                const checkmark = document.createElement('span');
+                checkmark.classList.add('hidden', 'mr-2');
+                checkmark.id = `checkmark-${index}`;
+                checkmark.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+
+                const lessonTitle = document.createElement('span');
+                lessonTitle.textContent = lesson.title;
+
+                const progressBarContainer = document.createElement('div');
+                progressBarContainer.classList.add('progress-container');
+
+                const progressBar = document.createElement('div');
+                progressBar.classList.add('progress-bar');
+                progressBar.style.width = lesson.progress + '%';
+                progressBar.id = `progress-bar-${index}`;
+
+                const progressText = document.createElement('span');
+                progressText.classList.add('progress-text');
+                progressText.id = `progress-text-${index}`;
+                progressText.textContent = lesson.progress + '%';
+
+                progressBarContainer.appendChild(progressBar);
+                progressBarContainer.appendChild(progressText);
+
+                listItem.appendChild(checkmark);
+                listItem.appendChild(lessonTitle);
+                listItem.appendChild(progressBarContainer);
+
+                lessonList.appendChild(listItem);
+
+                if (lesson.progress === 100) {
+                    checkmark.classList.remove('hidden');
+                }
+
+                progressBarContainer.addEventListener('click', () => {
+                    if (index === 0 || unitData[unit].lessons[index - 1].progress === 100) {
+                        markComplete(index);
+                    } else {
+                        alert('前のコンテンツを完了してください');
+                    }
+                });
+            });
+        } else {
+            document.getElementById('unit-title').textContent = 'ユニットが見つかりません';
+            document.getElementById('unit-content').innerHTML = '<p>指定されたユニットは存在しません。ユニット一覧に戻って再度選択してください。</p>';
+        }
+
+        function markComplete(index) {
+            const progressBar = document.getElementById(`progress-bar-${index}`);
+            const progressText = document.getElementById(`progress-text-${index}`);
+            const checkmark = document.getElementById(`checkmark-${index}`);
+            let progress = parseInt(progressBar.style.width, 10);
+            const interval = setInterval(() => {
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    checkmark.classList.remove('hidden');
+                    unitData[unit].lessons[index].progress = 100;
+                } else {
+                    progress += 10;
+                    progressBar.style.width = progress + '%';
+                    progressText.textContent = progress + '%';
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室一覧</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">教室一覧</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <!-- 教室アカウント一覧 -->
+            <table class="min-w-full bg-white">
+                <thead class="bg-gray-200 text-gray-600">
+                    <tr>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">教室ID</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">教室名</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">電話番号</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">アクション</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C001</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋201</td>
+                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C001" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C002</td>
+                        <td class="py-2 px-4 border-b border-gray-300">天満橋202</td>
+                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C002" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C003</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町5号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">06-6121-6354</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C003" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C004</td>
+                        <td class="py-2 px-4 border-b border-gray-300">本町8号館</td>
+                        <td class="py-2 px-4 border-b border-gray-300">06-6121-6354</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C004" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C005</td>
+                        <td class="py-2 px-4 border-b border-gray-300">心斎橋</td>
+                        <td class="py-2 px-4 border-b border-gray-300">06-6121-6354</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C005" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C006</td>
+                        <td class="py-2 px-4 border-b border-gray-300">三宮3階</td>
+                        <td class="py-2 px-4 border-b border-gray-300">078-803-8675</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C008" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">C007</td>
+                        <td class="py-2 px-4 border-b border-gray-300">三宮4階</td>
+                        <td class="py-2 px-4 border-b border-gray-300">078-803-8675</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="classroom_account_detail_edit.html?id=C009" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-4">
+                <a href="index.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">ダッシュボードへ戻る</a>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+</body>
+
+</html>

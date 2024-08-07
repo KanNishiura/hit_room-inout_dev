@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">定期考査</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-md rounded p-4 mb-6">
+                <p class="">回答完了</p>
+                <br>
+            </div>
+
+            <a href="index.html" class="text-blue-500 underline">>> ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- サイドバー -->
+    <aside id="sidebar">
+        <div id="sidebar"></div>
+    </aside>
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+    <script>
+        document.getElementById('exam-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            // ここでフォームデータをサーバーに送信する処理を実装
+            console.log(Array.from(formData.entries()));
+            alert('回答が送信されました。');
+        });
+    </script>
+</body>
+</html>

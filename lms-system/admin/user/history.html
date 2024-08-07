@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HITスクール管理 : ユーザ管理</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+  <style>
+    .flatpickr-current-month {
+      display: flex;
+      justify-content: center;
+    }
+    .cur-year {
+      order: 1
+    }
+    .cur-month:before  {
+      content: "年 "
+    }
+    .cur-month {
+      order: 2
+    }
+  </style>
+</head>
+<body class="h-100">
+  <!— ヘッダー -->
+  <header class="w-100 d-flex px-3 justify-content-between align-items-center " style="height: 50px">
+    <h1 class="fs-4">HITスクール管理画面</h1>
+  </header>
+
+  <div class="d-flex flex-row w-100" style="height: calc(100% - 50px)">
+    <!— サイドメニュー -->
+    <nav class="nav flex-column p-3" style="width: 230px">
+      <a class="nav-link" href="../course/index.html">コース管理</a>
+      <a class="nav-link" href="../user/index.html">ユーザ管理</a>
+      <hr/>
+      <a class="nav-link" href="../staff/index.html">スタッフ管理</a>
+      <a class="nav-link" href="../school/index.html">学校管理</a>
+      <a class="nav-link" href="../teacher/index.html">講師管理</a>
+      <hr/>
+      <a class="nav-link" href="../index.html">ログアウト</a>
+    </nav>
+
+    <!— メインコンテンツ -->
+    <main class="w-100 h-100">
+      <!— パンくず -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../top.html">トップ</a></li>
+          <li class="breadcrumb-item"><a href="../user/index.html">ユーザ管理</a></li>
+          <li class="breadcrumb-item"><a href="../user/detail.html">ユーザ詳細</a></li>
+          <li class="breadcrumb-item active" aria-current="page">履歴</li>
+        </ol>
+      </nav>
+
+      <!— 詳細 -->
+      <div class="p-3">
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-2">受講生番号</div>
+            <div class="col">4821-394728</div>
+          </div>
+          <div class="row">
+            <div class="col-2">名前</div>
+            <div class="col">西田 晋次（にしだ しんじ）</div>
+          </div>
+          <div class="row">
+            <div class="col-2">コース</div>
+            <div class="col">クラウドエンジニア基礎実践科 天満橋校</div>
+          </div>
+        </div>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-use-tab" data-bs-toggle="tab" data-bs-target="#nav-use" type="button" role="tab" aria-controls="nav-use" aria-selected="true">利用履歴</button>
+            <button class="nav-link" id="nav-movie-tab" data-bs-toggle="tab" data-bs-target="#nav-movie" type="button" role="tab" aria-controls="nav-movie" aria-selected="false">動画視聴履歴</button>
+            <button class="nav-link" id="nav-test-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="true">テスト結果</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <!-- 利用履歴 -->
+          <div class="tab-pane fade show active" id="nav-use" role="tabpanel" aria-labelledby="nav-use-tab" tabindex="0">
+            <div class="p-3">
+              <table class="table table-hover table-striped" id="useList">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">日時</th>
+                    <th scope="col">アクション</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2024/07/31 14:00:00</td>
+                    <td>ログアウト</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 13:00:00</td>
+                    <td>ログイン</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 10:40:30</td>
+                    <td>ログアウト</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 09:40:00</td>
+                    <td>ログイン</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/30 14:30:00</td>
+                    <td>ログイン<span class="badge text-bg-danger ms-3">ログアウト無し</span></td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/30 11:55:30</td>
+                    <td>ログアウト</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/30 10:00:00</td>
+                    <td>ログイン</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- 動画視聴履歴 -->
+          <div class="tab-pane fade" id="nav-movie" role="tabpanel" aria-labelledby="nav-movie-tab" tabindex="0">
+            <div class="p-3">
+              <table class="table table-hover table-striped p-3" id="movieList">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">日時</th>
+                    <th scope="col">タイトル</th>
+                    <th scope="col">アクション</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2024/07/31 14:10:00</td>
+                    <td>講習2日目</td>
+                    <td>修了</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 14:00:00</td>
+                    <td>講習2日目</td>
+                    <td>再開</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 13:50:00</td>
+                    <td>講習2日目</td>
+                    <td>一時停止</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 13:20:00</td>
+                    <td>講習2日目</td>
+                    <td>再開</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 13:10:00</td>
+                    <td>講習2日目</td>
+                    <td>一時停止</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 13:00:00</td>
+                    <td>講習2日目</td>
+                    <td>視聴開始</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/30 11:50:00</td>
+                    <td>講習1日目</td>
+                    <td>視聴終了</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/30 10:00:00</td>
+                    <td>講習1日目</td>
+                    <td>視聴開始</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- テスト結果 -->
+          <div class="tab-pane fade" id="nav-test" role="tabpanel" aria-labelledby="nav-test-tab" tabindex="0">
+            <div class="p-3">
+              <table class="table table-hover table-striped" id="testList">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">回答日時</th>
+                    <th scope="col">テスト</th>
+                    <th scope="col" colspan="2">結果</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2024/07/31 14:00:00</td>
+                    <td>講習2日目確認テスト</td>
+                    <td><div class="text-success">合格</div></td>
+                    <td>95点（100点）</td>
+                  </tr>
+                  <tr>
+                    <td>2024/07/31 14:00:00</td>
+                    <td>講習1日目確認テスト</td>
+                    <td><div class="text-success">合格</div></td>
+                    <td>95点（100点）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-secondary position-relative" onclick="location.href='./detail.html'">戻　る</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script type="text/javascript">
+  window.onload = () => {
+  }
+</script>
+
+</html>

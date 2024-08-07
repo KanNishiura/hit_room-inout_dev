@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入退室記録修正</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+
+    <!-- ヘッダー -->
+    <header class="bg-green-500 text-white p-4 flex flex-col justify-between h-24">
+        <div class="text-xl font-bold">入退室管理システム</div>
+        <div class="flex justify-between items-center mt-2">
+            <div class="text-lg">林太郎 さん</div>
+            <a href="#" class="text-sm text-green-200 hover:underline">ログアウト</a>
+        </div>
+    </header>
+
+    <!-- ボディ -->
+    <main class="flex-1 p-8">
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">入退室記録修正</h1>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <form id="edit-record-form" class="space-y-4">
+                <div class="mb-4">
+                    <label for="date" class="block text-gray-600 mb-2">日付</label>
+                    <input type="date" id="date" name="date" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="check-in" class="block text-gray-600 mb-2">入室時間</label>
+                    <input type="time" id="check-in" name="check-in" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="check-out" class="block text-gray-600 mb-2">退室時間</label>
+                    <input type="time" id="check-out" name="check-out" class="w-full px-3 py-2 border border-gray-300 rounded" required>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="bg-green-500 text-white py-2 px-6 text-lg font-semibold rounded-lg hover:bg-green-600">保存</button>
+                    <a href="record.html" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400">キャンセル</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-green-500 text-white p-4 text-center text-sm">
+        &copy; HIT 2024
+    </footer>
+
+    <script src="../js/edit-record.js"></script>
+</body>
+</html>

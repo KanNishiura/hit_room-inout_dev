@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HITスクール管理 : コース管理</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+  <style>
+    .flatpickr-current-month {
+      display: flex;
+      justify-content: center;
+    }
+    .cur-year {
+      order: 1
+    }
+    .cur-month:before  {
+      content: "年 "
+    }
+    .cur-month {
+      order: 2
+    }
+  </style>
+</head>
+<body class="h-100">
+  <!— ヘッダー -->
+  <header class="w-100 d-flex px-3 justify-content-between align-items-center " style="height: 50px">
+    <h1 class="fs-4">HITスクール管理画面</h1>
+  </header>
+
+  <div class="d-flex flex-row w-100" style="height: calc(100% - 50px)">
+    <!— サイドメニュー -->
+    <nav class="nav flex-column p-3" style="width: 230px">
+      <a class="nav-link" href="../course/index.html">コース管理</a>
+      <a class="nav-link" href="../user/index.html">ユーザ管理</a>
+      <hr/>
+      <a class="nav-link" href="../staff/index.html">スタッフ管理</a>
+      <a class="nav-link" href="../school/index.html">学校管理</a>
+      <a class="nav-link" href="../teacher/index.html">講師管理</a>
+      <hr/>
+      <a class="nav-link" href="../index.html">ログアウト</a>
+    </nav>
+
+    <!— メインコンテンツ -->
+    <main class="w-100 h-100">
+      <!— パンくず -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../top.html">トップ</a></li>
+          <li class="breadcrumb-item"><a href="../course/index.html">コース管理</a></li>
+          <li class="breadcrumb-item"><a href="../course/detail.html">コース詳細</a></li>
+          <li class="breadcrumb-item active" aria-current="page">コース編集</li>
+        </ol>
+      </nav>
+
+      <!— 詳細 -->
+      <div class="p-3">
+        <form method="post" action="./detail.html">
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="name">訓練名</label>
+            <input type="text" class="form-control" id="name" name="name" value="【9月開講】クラウドエンジニア基礎実践科（４９歳以下の方対象）" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="number">訓練番号</label>
+            <input type="text" class="form-control" id="number" name="number" value="5-06-27-149-02-0183" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="field">分野</label>
+            <select class="form-select" aria-label="Default select example" id="field" name="field">
+              <option selected value="1">IT系</option>
+              <option value="2">デザイン系</option>
+              <option value="3">ネイリスト</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="point">ポイント</label>
+            <textarea class="form-control" id="point" rows="5">
+コンピュータ・ネットワークをはじめとする ITインフラの仕組み、企業で使われるITシステムの全体像を把握するための基礎知識を習得し、クラウドを含めたITシステムの導入・運用業務を 行うことができるスキルを習得する。さらに、企業実習においては、より実践に即した 訓練を行うことにより、技能の向上を図る。</textarea>
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="practice">企業実習</label>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="practice" checked>
+              <label class="form-check-label" for="practice">あり</label>
+            </div>
+          </div>
+          <div class="input-group mb-3 date" data-target-input="nearest" id="startDatePicker">
+            <label class="pt-2 pr-2 col-sm-2" for="start">開始</label>
+            <input type="text" data-input class="form-control" data-target="#start" id="start" value="2024/09/01" />
+            <span class="input-group-text" data-toggle><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <div class="input-group mb-3 date" data-target-input="nearest" id="finishDatePicker">
+            <label class="pt-2 pr-2 col-sm-2" for="finish">終了</label>
+            <input type="text" data-input class="form-control" data-target="#finish" id="finish" value="2024/12/27" />
+            <span class="input-group-text" data-toggle><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="school">場所</label>
+            <select class="form-select" id="school" name="school">
+              <option value="1" selected>天満橋校</option>
+              <option value="2">本町校</option>
+              <option value="3">心斎橋校</option>
+              <option value="4">三宮校</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <label class="col-form-label col-sm-2" for="capacity">定員</label>
+            <input type="text" class="form-control" id="capacity" name="capacity" value="20" />
+            <span class="input-group-text">名</span>
+          </div>
+          <div class="input-group mb-3">
+          </div>
+          <div class="row">
+            <div class="col-4 mx-auto">
+              <div class="d-flex align-items-center justify-content-evenly">
+                <button type="button" class="btn btn-secondary position-relative" onclick="location.href='./detail.html'">戻　る</button>
+              </div>
+            </div>
+            <div class="col-4 mx-auto">
+            </div>
+            <div class="col-4 mx-auto">
+              <div class="d-flex align-items-center justify-content-evenly">
+                <button type="submit" class="btn btn-primary">更新する</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script type="text/javascript">
+  window.onload = () => {
+    flatpickr('#startDatePicker',
+      {
+        locale: 'ja',
+        wrap : true,
+        dateFormat : 'Y/m/d',
+        clickOpens : false,
+        allowInput : true,
+        monthSelectorType : 'static'
+      }
+    )
+    flatpickr('#finishDatePicker',
+      {
+        locale: 'ja',
+        wrap : true,
+        dateFormat : 'Y/m/d',
+        clickOpens : false,
+        allowInput : true,
+        monthSelectorType : 'static'
+      }
+    )
+  }
+</script>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">お知らせ</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200 text-gray-600">
+                        <tr>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">日付</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">タイトル</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">詳細</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2024/06/01</td>
+                            <td class="py-2 px-4 border-b border-gray-300">パスワード変更のお願い</td>
+                            <td class="py-2 px-4 border-b border-gray-300">セキュリティ向上のため、全ユーザーのパスワード変更をお願いしています。6月15日までに新しいパスワードに変更してください。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2024/03/20</td>
+                            <td class="py-2 px-4 border-b border-gray-300">全機能使用可能の通知</td>
+                            <td class="py-2 px-4 border-b border-gray-300">システムメンテナンスが完了し、全ての機能が使用可能となりました。ご協力ありがとうございました。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2024/03/11</td>
+                            <td class="py-2 px-4 border-b border-gray-300">アカウント設定完了のお知らせ</td>
+                            <td class="py-2 px-4 border-b border-gray-300">全てのユーザーのアカウント設定が完了しました。ログインしてご確認ください。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2024/02/28</td>
+                            <td class="py-2 px-4 border-b border-gray-300">システムメンテナンス完了報告</td>
+                            <td class="py-2 px-4 border-b border-gray-300">システムメンテナンスが完了しました。全ての機能が正常に動作しております。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2024/01/15</td>
+                            <td class="py-2 px-4 border-b border-gray-300">新機能追加のお知らせ</td>
+                            <td class="py-2 px-4 border-b border-gray-300">新しい機能が追加されました。詳細はユーザーマニュアルをご覧ください。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-300">2023/12/25</td>
+                            <td class="py-2 px-4 border-b border-gray-300">年末年始の休業について</td>
+                            <td class="py-2 px-4 border-b border-gray-300">年末年始の休業期間は2023年12月29日から2024年1月3日までです。この期間中はサポートが利用できませんのでご注意ください。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+
+</body>
+
+</html>

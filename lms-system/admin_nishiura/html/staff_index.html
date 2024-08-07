@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタッフ管理</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <!-- flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/ja.js"></script>
+    <style>
+      .flatpickr-current-month {
+        display: flex;
+        justify-content: center;
+      }
+      .cur-year {
+        order: 1
+      }
+      .cur-month:before  {
+        content: "年 "
+      }
+      .cur-month {
+        order: 2
+      }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+
+    <div class="flex flex-grow">
+        <!-- サイドバー -->
+        <aside id="sidebar">
+            <div id="sidebar"></div>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="flex-grow">
+            <div class="flex justify-between mb-4">
+                <h1 class="text-2xl font-bold">スタッフ管理</h1>
+                <div class="hamburger my-auto" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="p-3">
+              <!-- 新規登録 -->
+              <div class="col-4" style="margin-bottom: 20px">
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalEditor">新規登録</button>
+              </div>
+      
+              <!-- 編集ダイアログ -->
+              <div class="modal fade" id="modalEditor" tabindex="-1" aria-labelledby="modalEditor" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalEditor">スタッフ登録・編集</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="input-group mb-3">
+                        <label class="col-form-label col-sm-2" for="authority">権限</label>
+                        <select class="form-select" aria-label="Default select example" id="authority" name="authority">
+                          <option value="0">選択してください</option>
+                          <option value="1">管理者</option>
+                          <option value="2">講師</option>
+                          <option value="3">閲覧者</option>
+                        </select>
+                      </div>
+                      <div class="input-group mb-3">
+                        <label class="col-form-label col-sm-2" for="account">アカウント</label>
+                        <input type="text" class="form-control" id="account" name="account" value="" />
+                        <span class="input-group-text">@h-i-t.jp</span>
+                      </div>
+                      <div class="input-group mb-3">
+                        <label class="col-form-label col-sm-2" for="password">パスワード</label>
+                        <input type="text" class="form-control" id="password" name="password" value="" />
+                      </div>
+                      <div class="input-group mb-3">
+                        <label class="col-form-label col-sm-2" for="lastName">名前</label>
+                        <span class="input-group-text" data-toggle>姓</span>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="" />
+                        <span class="input-group-text" data-toggle>名</span>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="" />
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">登録する</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 削除確認ダイアログ -->
+              <div class="modal fade" id="modalConfirm" tabindex="-1" aria-labelledby="modalConfirm" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalConfirm">削除確認</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>削除してもよろしいですか？</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">削除する</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 一覧 -->
+              <!--  role="button" : カーソル形状変更のため -->
+              <table class="table table-hover table-striped" id="staffList">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">権限</th>
+                    <th scope="col">アカウント</th>
+                    <th scope="col">姓</th>
+                    <th scope="col">名</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>kawaguchi@h-i-t.jp</td>
+                    <td>川口</td>
+                    <td>雅道</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>tani@h-i-t.jp</td>
+                    <td>谷</td>
+                    <td>光典</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>tokuda@h-i-t.jp</td>
+                    <td>徳田</td>
+                    <td>光典</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>kimura@h-i-t.jp</td>
+                    <td>木村
+                    </td>
+                    <td>早貴</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>ohmoto@h-i-t.jp</td>
+                    <td>大本</td>
+                    <td>優静香</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>管理者</td>
+                    <td>kataoka@h-i-t.jp</td>
+                    <td>片岡</td>
+                    <td>京将</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>kiuchi@h-i-t.jp</td>
+                    <td>木内</td>
+                    <td>和也</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>yashui@h-i-t.jp</td>
+                    <td>安井</td>
+                    <td>亜矢</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>hayashi@h-i-t.jp</td>
+                    <td>林</td>
+                    <td>太郎</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>sumida@h-i-t.jp</td>
+                    <td>隅田</td>
+                    <td>進二</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>ohhashi@h-i-t.jp</td>
+                    <td>大橋</td>
+                    <td>弘一</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                  <tr role="button">
+                    <td>講師</td>
+                    <td>yonezawa@h-i-t.jp</td>
+                    <td>米澤</td>
+                    <td>優</td>
+                    <td>
+                      <button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#modalConfirm"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <div class="flex justify-center mt-4">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">前へ</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">3</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50">次へ</a>
+                </nav>
+            </div>
+
+            <a href="admin_dashboard.html" class="text-blue-500 underline mt-4 block">>> 管理者ダッシュボードへ戻る</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
+
+    <!-- JavaScriptファイルのロード -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js" defer></script>
+
+    <script type="text/javascript">
+      function addRowHandlers() {
+        const table = document.getElementById("staffList");
+        const rows = table.getElementsByTagName("tr");
+        // ヘッダーを除外するため1から開始
+        for (i = 1; i < rows.length; i++) {
+          const currentRow = table.rows[i];
+          const createClickHandler = 
+            function(row) {
+              return function(e) {
+                // 削除列で反応しないように
+                if ((e.target.cellIndex != undefined) && (e.target.cellIndex < 4)) {
+                  const editor = new bootstrap.Modal(document.getElementById('modalEditor'));
+                  editor.show();
+                }
+              };
+            };
+          currentRow.onclick = createClickHandler(currentRow);
+        }
+      }
+      window.onload = () => {
+        addRowHandlers();
+      }
+    </script>
+</body>
+</html>
