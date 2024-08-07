@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ホーム画面</title>
+    <title>勤怠記録 - ホーム画面</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
 </head>
-<body class="bg-gray-100 h-screen flex flex-col">
+<body class="bg-gray-50 h-screen flex flex-col">
 
     <!-- ヘッダー -->
-    <header class="bg-green-600 text-white p-4 flex justify-between items-center">
-        <div class="text-2xl font-bold"><a href="../../../room-inout/room-inout.html">講師-出退勤管理システム</a></div>
-        <div class="flex items-center">
-            <div class="text-lg mr-4">林太郎 さん</div>
+    <header class="bg-green-500 text-white p-4 flex flex-col justify-between h-24">
+        <div class="text-xl font-bold"><a href="../../../room-inout/room-inout.html">勤怠管理</a></div>
+        <div class="flex justify-between items-center mt-2">
+            <div class="text-lg"><i class="fa-regular fa-circle-user"></i> 林太郎</div>
             <a href="#" class="text-sm text-green-200 hover:underline">ログアウト</a>
         </div>
     </header>
@@ -47,7 +49,7 @@
     <footer>
         <div class="bg-green-600 text-white w-full text-center flex justify-between px-4 py-2">
             <p>　</p>
-            <p>&copy; 2024 入退室管理システム</p>
+            <p>&copy; HIT 2024</p>
             <p class="p-1">事業再構築</p>
         </div>
     </footer>
