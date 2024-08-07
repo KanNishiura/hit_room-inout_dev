@@ -86,14 +86,11 @@
                 </div>
             </form>
 
-
-
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active" id="nav-mark-tab" data-bs-toggle="tab" data-bs-target="#nav-mark" type="button" role="tab" aria-controls="mark" aria-selected="true">学習状況</button>
                   <button class="nav-link" id="nav-use-tab" data-bs-toggle="tab" data-bs-target="#nav-use" type="button" role="tab" aria-controls="nav-use" aria-selected="true">課題クリア状況</button>
                   <button class="nav-link" id="nav-movie-tab" data-bs-toggle="tab" data-bs-target="#nav-movie" type="button" role="tab" aria-controls="nav-movie" aria-selected="false">成績状況</button> 
-                  <!-- <button class="nav-link" id="nav-test-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="true">テスト結果</button> -->
                 </div>
               </nav>
               <div class="tab-content" id="nav-tabContent">
@@ -171,128 +168,70 @@
                     </div>
                   </div>
                 </div>
-                <!-- 利用履歴 -->
+
+                <!-- 課題クリア状況 -->
                 <div class="tab-pane fade" id="nav-use" role="tabpanel" aria-labelledby="nav-use-tab" tabindex="0">
                   <div class="p-3">
-                    <table class="table table-hover table-striped" id="useList">
+                    <table class="table table-hover table-striped" id="taskList">
                       <thead class="table-dark">
                         <tr>
-                          <th scope="col">日時</th>
-                          <th scope="col">アクション</th>
+                          <th scope="col">課題</th>
+                          <th scope="col">提出日</th>
+                          <th scope="col">ステータス</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>2024/07/31 14:00:00</td>
-                          <td>ログアウト</td>
+                          <td>課題1</td>
+                          <td>2024/04/27</td>
+                          <td>提出完了</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 13:00:00</td>
-                          <td>ログイン</td>
+                          <td>課題2</td>
+                          <td>2024/06/08</td>
+                          <td>提出完了</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 10:40:30</td>
-                          <td>ログアウト</td>
+                          <td>課題3</td>
+                          <td>2024/07/13</td>
+                          <td>提出完了</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 09:40:00</td>
-                          <td>ログイン</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/30 14:30:00</td>
-                          <td>ログイン<span class="badge text-bg-danger ms-3">ログアウト無し</span></td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/30 11:55:30</td>
-                          <td>ログアウト</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/30 10:00:00</td>
-                          <td>ログイン</td>
+                          <td>課題4</td>
+                          <td>2024/08/03</td>
+                          <td>未提出</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <!-- 動画視聴履歴 -->
+
+                <!-- 成績状況 -->
                 <div class="tab-pane fade" id="nav-movie" role="tabpanel" aria-labelledby="nav-movie-tab" tabindex="0">
                   <div class="p-3">
-                    <table class="table table-hover table-striped p-3" id="movieList">
+                    <table class="table table-hover table-striped" id="gradeList">
                       <thead class="table-dark">
                         <tr>
-                          <th scope="col">日時</th>
-                          <th scope="col">タイトル</th>
-                          <th scope="col">アクション</th>
+                          <th scope="col">科目</th>
+                          <th scope="col">成績</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>2024/07/31 14:10:00</td>
-                          <td>講習2日目</td>
-                          <td>修了</td>
+                          <td>プログラミング基礎</td>
+                          <td>90点</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 14:00:00</td>
-                          <td>講習2日目</td>
-                          <td>再開</td>
+                          <td>データ型と変数</td>
+                          <td>85点</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 13:50:00</td>
-                          <td>講習2日目</td>
-                          <td>一時停止</td>
+                          <td>制御構造</td>
+                          <td>80点</td>
                         </tr>
                         <tr>
-                          <td>2024/07/31 13:20:00</td>
-                          <td>講習2日目</td>
-                          <td>再開</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/31 13:10:00</td>
-                          <td>講習2日目</td>
-                          <td>一時停止</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/31 13:00:00</td>
-                          <td>講習2日目</td>
-                          <td>視聴開始</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/30 11:50:00</td>
-                          <td>講習1日目</td>
-                          <td>視聴終了</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/30 10:00:00</td>
-                          <td>講習1日目</td>
-                          <td>視聴開始</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <!-- テスト結果 -->
-                <div class="tab-pane fade" id="nav-test" role="tabpanel" aria-labelledby="nav-test-tab" tabindex="0">
-                  <div class="p-3">
-                    <table class="table table-hover table-striped" id="testList">
-                      <thead class="table-dark">
-                        <tr>
-                          <th scope="col">回答日時</th>
-                          <th scope="col">定期考査</th>
-                          <th scope="col" colspan="2">結果</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>2024/07/31 14:00:00</td>
-                          <td>講習2日目確認テスト</td>
-                          <td><div class="text-success">合格</div></td>
-                          <td>95点（100点）</td>
-                        </tr>
-                        <tr>
-                          <td>2024/07/31 14:00:00</td>
-                          <td>講習1日目確認テスト</td>
-                          <td><div class="text-success">合格</div></td>
-                          <td>95点（100点）</td>
+                          <td>関数とメソッド</td>
+                          <td>88点</td>
                         </tr>
                       </tbody>
                     </table>
@@ -301,12 +240,6 @@
 
               </div>
             </div>
-
-
-
-
-
-
 
             <!-- 入退室記録一覧 -->
             <div class="tab-pane fade" id="nav-class-io" role="tabpanel" aria-labelledby="nav-class-io-tab" tabindex="0">
