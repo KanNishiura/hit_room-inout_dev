@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者一覧</title>
+    <title>保護者一覧</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -33,73 +33,342 @@
                 </div>
             </div>
 
-            <!-- 管理者アカウント一覧 -->
-            <table class="min-w-full bg-white">
+            <!-- 保護者アカウント一覧 -->
+            <table id="guardianTable" class="min-w-full bg-white sm:w-1/2 ">
                 <thead class="bg-gray-200 text-gray-600">
                     <tr>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">管理者ID</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">保護者ID</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">名前</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">生徒名前</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">連絡先</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">メールアドレス</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">LINE連携</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">通知</th>
                         <th class="py-2 px-4 border-b-2 border-gray-300">アクション</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01001</td>
-                        <td class="py-2 px-4 border-b border-gray-300">川口	雅道</td>
-                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
-                        <td class="py-2 px-4 border-b border-gray-300">kawaguchi@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G001</td>
+                        <td class="py-2 px-4 border-b border-gray-300">河内 和美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">河内 陽太</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-2345-6789</td>
+                        <td class="py-2 px-4 border-b border-gray-300">k91jdu88@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A002" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="#" class="ml-2 text-blue-600 hover:text-blue-800 notify-icon" data-id="G001">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G001" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01002</td>
-                        <td class="py-2 px-4 border-b border-gray-300">西浦 幹</td>
-                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
-                        <td class="py-2 px-4 border-b border-gray-300">nishiura.kan@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G002</td>
+                        <td class="py-2 px-4 border-b border-gray-300">久米 みさき</td>
+                        <td class="py-2 px-4 border-b border-gray-300">久米 琴</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-3456-7890</td>
+                        <td class="py-2 px-4 border-b border-gray-300">misamisa1212@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A001" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G002" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01003</td>
-                        <td class="py-2 px-4 border-b border-gray-300">谷 光典</td>
-                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
-                        <td class="py-2 px-4 border-b border-gray-300">tani_hit@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G003</td>
+                        <td class="py-2 px-4 border-b border-gray-300">佐藤 康二</td>
+                        <td class="py-2 px-4 border-b border-gray-300">佐藤 奏</td>
+                        <td class="py-2 px-4 border-b border-gray-300">070-4567-8901</td>
+                        <td class="py-2 px-4 border-b border-gray-300">gt7-ko-ji@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A002" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G003" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01004</td>
-                        <td class="py-2 px-4 border-b border-gray-300">徳田	優紀</td>
-                        <td class="py-2 px-4 border-b border-gray-300">06-6940-0566</td>
-                        <td class="py-2 px-4 border-b border-gray-300">hit.tokuda@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G004</td>
+                        <td class="py-2 px-4 border-b border-gray-300">高橋 綾子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">高橋 梨紗</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-5678-9012</td>
+                        <td class="py-2 px-4 border-b border-gray-300">1990aya1990@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A002" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G004" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01005</td>
-                        <td class="py-2 px-4 border-b border-gray-300">大本	静香</td>
-                        <td class="py-2 px-4 border-b border-gray-300">078-803-8675</td>
-                        <td class="py-2 px-4 border-b border-gray-300">s.omoto@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G005</td>
+                        <td class="py-2 px-4 border-b border-gray-300">伊藤 雄介</td>
+                        <td class="py-2 px-4 border-b border-gray-300">伊藤 拓海</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-6789-0123</td>
+                        <td class="py-2 px-4 border-b border-gray-300">yu-su-ke777@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A002" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G005" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
                     <tr>
-                        <td class="py-2 px-4 border-b border-gray-300">HIT01006</td>
-                        <td class="py-2 px-4 border-b border-gray-300">片岡	京将</td>
-                        <td class="py-2 px-4 border-b border-gray-300">078-803-8675</td>
-                        <td class="py-2 px-4 border-b border-gray-300">kataoka@h-i-t.jp</td>
+                        <td class="py-2 px-4 border-b border-gray-300">G006</td>
+                        <td class="py-2 px-4 border-b border-gray-300">須藤 由美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">須藤 愛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-7890-1234</td>
+                        <td class="py-2 px-4 border-b border-gray-300">yumic0921@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
                         <td class="py-2 px-4 border-b border-gray-300">
-                            <a href="admin_account_detail_edit.html?id=A002" class="text-blue-600 hover:underline">詳細・編集</a>
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G006" class="text-blue-600 hover:underline">詳細・編集</a>
                         </td>
                     </tr>
-
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G007</td>
+                        <td class="py-2 px-4 border-b border-gray-300">沖 裕美子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">沖 大輝</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-8901-2345</td>
+                        <td class="py-2 px-4 border-b border-gray-300">okidesuyo@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G007" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G008</td>
+                        <td class="py-2 px-4 border-b border-gray-300">小林 まゆ</td>
+                        <td class="py-2 px-4 border-b border-gray-300">小林 凛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-9012-3456</td>
+                        <td class="py-2 px-4 border-b border-gray-300">kkkbbbyyysss@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G008" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G009</td>
+                        <td class="py-2 px-4 border-b border-gray-300">清水 なるみ</td>
+                        <td class="py-2 px-4 border-b border-gray-300">清水 里奈</td>
+                        <td class="py-2 px-4 border-b border-gray-300">070-1234-5678</td>
+                        <td class="py-2 px-4 border-b border-gray-300">Hy.simi.naru@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G009" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G010</td>
+                        <td class="py-2 px-4 border-b border-gray-300">渡辺 麗</td>
+                        <td class="py-2 px-4 border-b border-gray-300">渡辺 亜衣</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-2345-6789</td>
+                        <td class="py-2 px-4 border-b border-gray-300">urrrrr1999ur@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G010" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G011</td>
+                        <td class="py-2 px-4 border-b border-gray-300">黒田 沙都子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">黒田 剛</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-3456-7890</td>
+                        <td class="py-2 px-4 border-b border-gray-300">sachan2020@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G011" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G012</td>
+                        <td class="py-2 px-4 border-b border-gray-300">山田 裕子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">山田 花</td>
+                        <td class="py-2 px-4 border-b border-gray-300">070-4567-8901</td>
+                        <td class="py-2 px-4 border-b border-gray-300">99kahygcvj86@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G012" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G013</td>
+                        <td class="py-2 px-4 border-b border-gray-300">中村 健</td>
+                        <td class="py-2 px-4 border-b border-gray-300">中村 由美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-5678-9012</td>
+                        <td class="py-2 px-4 border-b border-gray-300">xxx.rock.man.xxx@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G013" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G014</td>
+                        <td class="py-2 px-4 border-b border-gray-300">加藤 結衣</td>
+                        <td class="py-2 px-4 border-b border-gray-300">加藤 航</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-6789-0123</td>
+                        <td class="py-2 px-4 border-b border-gray-300">2001kago0622@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G014" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G015</td>
+                        <td class="py-2 px-4 border-b border-gray-300">石井 真智子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">石井 智</td>
+                        <td class="py-2 px-4 border-b border-gray-300">070-7890-1234</td>
+                        <td class="py-2 px-4 border-b border-gray-300">machimachi.isi@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G015" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G016</td>
+                        <td class="py-2 px-4 border-b border-gray-300">森本 こころ</td>
+                        <td class="py-2 px-4 border-b border-gray-300">森本 美咲</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-7890-2345</td>
+                        <td class="py-2 px-4 border-b border-gray-300">556-mori-556@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G016" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G017</td>
+                        <td class="py-2 px-4 border-b border-gray-300">川口 智浩</td>
+                        <td class="py-2 px-4 border-b border-gray-300">川口 陽</td>
+                        <td class="py-2 px-4 border-b border-gray-300">070-8901-2345</td>
+                        <td class="py-2 px-4 border-b border-gray-300">tomohiro.kawaguchi1899@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G017" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G018</td>
+                        <td class="py-2 px-4 border-b border-gray-300">清川 琴美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">清川 智子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-1233-5638</td>
+                        <td class="py-2 px-4 border-b border-gray-300">shimizkoto@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G018" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G019</td>
+                        <td class="py-2 px-4 border-b border-gray-300">大野 悠美</td>
+                        <td class="py-2 px-4 border-b border-gray-300">大野 直樹</td>
+                        <td class="py-2 px-4 border-b border-gray-300">080-9012-3456</td>
+                        <td class="py-2 px-4 border-b border-gray-300">gacchan.yu-mi@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G019" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300">G020</td>
+                        <td class="py-2 px-4 border-b border-gray-300">竹田 賢子</td>
+                        <td class="py-2 px-4 border-b border-gray-300">竹田 美月</td>
+                        <td class="py-2 px-4 border-b border-gray-300">090-2345-6789</td>
+                        <td class="py-2 px-4 border-b border-gray-300">take-2222@gmail.com</td>
+                        <td class="py-2 px-4 border-b border-gray-300">連携済み</td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="mail.html" class="ml-2 text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        <td class="py-2 px-4 border-b border-gray-300">
+                            <a href="student_account_detail_edit.html?id=G020" class="text-blue-600 hover:underline">詳細・編集</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -107,6 +376,30 @@
                 <a href="index.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">ダッシュボードへ戻る</a>
             </div>
         </div>
+
+    <!-- モーダル -->
+    <div id="notificationModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4">通知送信</h2>
+            <form id="notificationForm">
+                <div class="mb-4">
+                    <label for="notificationType" class="block text-lg font-semibold mb-2">通知方法:</label>
+                    <select id="notificationType" name="notificationType" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4">
+                        <option value="email">メール</option>
+                        <option value="line">LINE</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="notificationMessage" class="block text-lg font-semibold mb-2">メッセージ:</label>
+                    <textarea id="notificationMessage" name="notificationMessage" class="block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-4"></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" id="closeModal" class="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-700">キャンセル</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">送信</button>
+                </div>
+            </form>
+        </div>
+    </div>
     </main>
     </div>
 
@@ -114,5 +407,40 @@
     <div id="footer"></div>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const notifyIcons = document.querySelectorAll(".notify-icon");
+        const modal = document.getElementById("notificationModal");
+        const closeModal = document.getElementById("closeModal");
+        const notificationForm = document.getElementById("notificationForm");
 
+        notifyIcons.forEach(icon => {
+            icon.addEventListener("click", function(event) {
+                event.preventDefault();
+                modal.classList.remove("hidden");
+                modal.dataset.id = this.dataset.id;
+            });
+        });
+
+        closeModal.addEventListener("click", function() {
+            modal.classList.add("hidden");
+        });
+
+        notificationForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(notificationForm);
+            const id = modal.dataset.id;
+            const notificationType = formData.get("notificationType");
+            const notificationMessage = formData.get("notificationMessage");
+
+            console.log("ID:", id);
+            console.log("Notification Type:", notificationType);
+            console.log("Message:", notificationMessage);
+
+            modal.classList.add("hidden");
+
+            // 通知送信処理をここに追加
+        });
+    });
+</script>
 </html>

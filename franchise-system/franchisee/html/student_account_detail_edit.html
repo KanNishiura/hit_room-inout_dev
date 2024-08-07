@@ -8,6 +8,11 @@
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
     <script src="../js/script.js"></script>
 </head>
 
@@ -47,7 +52,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="age" class="block text-gray-700 font-bold mb-2">年齢</label>
-                    <input type="text" id="age" name="age" value="10"
+                    <input type="text" id="age" name="age" value="13"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
@@ -81,7 +86,230 @@
                 </div>
             </form>
 
+
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-mark-tab" data-bs-toggle="tab" data-bs-target="#nav-mark" type="button" role="tab" aria-controls="mark" aria-selected="true">コース進捗</button>
+                  <button class="nav-link" id="nav-use-tab" data-bs-toggle="tab" data-bs-target="#nav-use" type="button" role="tab" aria-controls="nav-use" aria-selected="true">利用履歴</button>
+                  <!-- <button class="nav-link" id="nav-movie-tab" data-bs-toggle="tab" data-bs-target="#nav-movie" type="button" role="tab" aria-controls="nav-movie" aria-selected="false">動画視聴履歴</button>
+                  <button class="nav-link" id="nav-test-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="true">テスト結果</button> -->
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                                <!-- コース進捗 -->
+                                <div class="tab-pane fade show active mt-4" id="nav-mark" role="tabpanel" aria-labelledby="nav-mark-tab" tabindex="0">
+                                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <div id="unit-card-1" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between border-green-500 bg-green-100">
+                                        <div>
+                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=1'">
+                                                <span id="checkmark-1" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                                1. Javaの基本
+                                            </h2>
+                                            <p class="mb-4">このユニットでは、Javaの基本的な概念とプログラミングの基礎を学びます。</p>
+                                        </div>
+                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-1', 6, 'checkmark-1', 'unit-card-1')">
+                                            <div id="progress-bar-1" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                                            <span id="progress-percent-1" class="absolute inset-0 text-center text-white">100%</span>
+                                        </div>
+                                    </div>
+                
+                                    <div id="unit-card-2" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                                        <div>
+                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=2'">
+                                                <span id="checkmark-2" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                                2. Web開発基礎
+                                            </h2>
+                                            <p class="mb-4">このユニットでは、HTML、CSS、JavaScriptの基本を学び、簡単なWebページを作成します。</p>
+                                        </div>
+                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-2', 6, 'checkmark-2', 'unit-card-2')">
+                                            <div id="progress-bar-2" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                                            <span id="progress-percent-2" class="absolute inset-0 text-center text-white">100%</span>
+                                        </div>
+                                    </div>
+                
+                                    <div id="unit-card-3" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                                        <div>
+                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=3'">
+                                                <span id="checkmark-3" class=""><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                                3. 制御構造
+                                            </h2>
+                                            <p class="mb-4">このユニットでは、Javaの制御構造について学びます。</p>
+                                        </div>
+                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-3', 6, 'checkmark-3', 'unit-card-3')">
+                                            <div id="progress-bar-3" class="h-6 rounded-full bg-green-500" style="width: 100%;"></div>
+                                            <span id="progress-percent-3" class="absolute inset-0 text-center text-white">100%</span>
+                                        </div>
+                                    </div>
+                
+                                    <div id="unit-card-4" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                                        <div>
+                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=4'">
+                                                <span id="checkmark-4" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                                4. オブジェクト指向プログラミング（OOP）の基礎
+                                            </h2>
+                                            <p class="mb-4">このユニットでは、オブジェクト指向プログラミングの基本概念とその適用方法を学びます。</p>
+                                        </div>
+                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-4', 6, 'checkmark-4', 'unit-card-4')">
+                                            <div id="progress-bar-4" class="h-6 rounded-full bg-green-500" style="width: 90%;"></div>
+                                            <span id="progress-percent-4" class="absolute inset-0 text-center text-white">90%</span>
+                                        </div>
+                                    </div>
+                
+                                    <div id="unit-card-5" class="bg-white p-6 rounded-lg shadow-md relative border-4 border-transparent transition-colors duration-300 flex flex-col justify-between">
+                                        <div>
+                                            <h2 class="text-xl font-semibold mb-4 cursor-pointer" onclick="location.href='unit_detail.html?unit=5'">
+                                                <span id="checkmark-5" class="hidden"><i class="fas fa-check text-green-500 mr-2"></i></span>
+                                                5. JavaでのWeb開発
+                                            </h2>
+                                            <p class="mb-4">このユニットでは、Javaを使ったWebアプリケーションの開発方法を学びます。</p>
+                                        </div>
+                                        <div class="w-full bg-gray-300 rounded-full h-6 relative cursor-pointer mt-4" onclick="markComplete('progress-bar-5', 6, 'checkmark-5', 'unit-card-5')">
+                                            <div id="progress-bar-5" class="h-6 rounded-full" style="width: 0%;"></div>
+                                            <span id="progress-percent-5" class="absolute inset-0 text-center text-white">0%</span>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                <!-- 利用履歴 -->
+                <div class="tab-pane fade" id="nav-use" role="tabpanel" aria-labelledby="nav-use-tab" tabindex="0">
+                  <div class="p-3">
+                    <table class="table table-hover table-striped" id="useList">
+                      <thead class="table-dark">
+                        <tr>
+                          <th scope="col">日時</th>
+                          <th scope="col">アクション</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2024/07/31 14:00:00</td>
+                          <td>ログアウト</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 13:00:00</td>
+                          <td>ログイン</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 10:40:30</td>
+                          <td>ログアウト</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 09:40:00</td>
+                          <td>ログイン</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/30 14:30:00</td>
+                          <td>ログイン<span class="badge text-bg-danger ms-3">ログアウト無し</span></td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/30 11:55:30</td>
+                          <td>ログアウト</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/30 10:00:00</td>
+                          <td>ログイン</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- 動画視聴履歴 -->
+                <div class="tab-pane fade" id="nav-movie" role="tabpanel" aria-labelledby="nav-movie-tab" tabindex="0">
+                  <div class="p-3">
+                    <table class="table table-hover table-striped p-3" id="movieList">
+                      <thead class="table-dark">
+                        <tr>
+                          <th scope="col">日時</th>
+                          <th scope="col">タイトル</th>
+                          <th scope="col">アクション</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2024/07/31 14:10:00</td>
+                          <td>講習2日目</td>
+                          <td>修了</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 14:00:00</td>
+                          <td>講習2日目</td>
+                          <td>再開</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 13:50:00</td>
+                          <td>講習2日目</td>
+                          <td>一時停止</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 13:20:00</td>
+                          <td>講習2日目</td>
+                          <td>再開</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 13:10:00</td>
+                          <td>講習2日目</td>
+                          <td>一時停止</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 13:00:00</td>
+                          <td>講習2日目</td>
+                          <td>視聴開始</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/30 11:50:00</td>
+                          <td>講習1日目</td>
+                          <td>視聴終了</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/30 10:00:00</td>
+                          <td>講習1日目</td>
+                          <td>視聴開始</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- テスト結果 -->
+                <div class="tab-pane fade" id="nav-test" role="tabpanel" aria-labelledby="nav-test-tab" tabindex="0">
+                  <div class="p-3">
+                    <table class="table table-hover table-striped" id="testList">
+                      <thead class="table-dark">
+                        <tr>
+                          <th scope="col">回答日時</th>
+                          <th scope="col">定期考査</th>
+                          <th scope="col" colspan="2">結果</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2024/07/31 14:00:00</td>
+                          <td>講習2日目確認テスト</td>
+                          <td><div class="text-success">合格</div></td>
+                          <td>95点（100点）</td>
+                        </tr>
+                        <tr>
+                          <td>2024/07/31 14:00:00</td>
+                          <td>講習1日目確認テスト</td>
+                          <td><div class="text-success">合格</div></td>
+                          <td>95点（100点）</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
             <!-- 入退室記録一覧 -->
+            <div class="tab-pane fade" id="nav-class-io" role="tabpanel" aria-labelledby="nav-class-io-tab" tabindex="0">
             <h2 class="text-xl font-bold mt-8 mb-4">入退室記録一覧</h2>
 
             <table class="min-w-full bg-white border border-gray-300">
@@ -160,6 +388,9 @@
                     </ul>
                 </nav>
             </div>
+</div>
+
+
 
         </div>
     </main>
