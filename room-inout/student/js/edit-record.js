@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 仮のデータ: 実際のデータに合わせて修正する必要があります
     const recordData = {
-        1: { date: '2024-07-15', checkIn: '08:30', checkOut: '17:15' },
-        2: { date: '2024-07-16', checkIn: '09:00', checkOut: '18:00' },
-        3: { date: '2024-07-17', checkIn: '08:45', checkOut: '17:30' },
-        4: { date: '2024-07-18', checkIn: '09:15', checkOut: '18:20' },
-        5: { date: '2024-07-19', checkIn: '08:50', checkOut: '17:45' }
+        1: { date: '2024-08-03', checkIn: '08:30', checkOut: '15:45' },
+        2: { date: '2024-07-27', checkIn: '09:13', checkOut: '16:40' },
+        3: { date: '2024-07-20', checkIn: '09:22', checkOut: '16:35' },
+        4: { date: '2024-07-13', checkIn: '09:15', checkOut: '16:40' },
+        5: { date: '2024-07-06', checkIn: '09:20', checkOut: '16:40' }
     };
 
     // フォームの入力フィールドにデータを設定
