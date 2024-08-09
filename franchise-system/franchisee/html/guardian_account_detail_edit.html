@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC管理-保護者アカウント詳細・編集</title>
+    <title>保護者データ詳細・編集</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -23,9 +22,9 @@
         </aside>
 
         <!-- メインコンテンツ -->
-        <main class="flex-grow">
+        <main class="flex-grow p-8">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">保護者アカウント詳細・編集</h1>
+                <h1 class="text-2xl font-bold">保護者データ詳細・編集</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -37,7 +36,7 @@
             <form>
                 <div class="mb-4">
                     <label for="guardian_id" class="block text-gray-700 font-bold mb-2">保護者ID</label>
-                    <input type="text" id="guardian_id" name="guardian_id" value="S001" readonly
+                    <input type="text" id="guardian_id" name="guardian_id" value="G001" readonly
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
@@ -46,34 +45,43 @@
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="age" class="block text-gray-700 font-bold mb-2">生徒名</label>
-                    <input type="text" id="age" name="age" value="河内 陽太"
+                    <label for="child_name" class="block text-gray-700 font-bold mb-2">生徒の名前</label>
+                    <input type="text" id="child_name" name="child_name" value="河内 陽太"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="guardian_contact" class="block text-gray-700 font-bold mb-2">連絡先</label>
-                    <input type="text" id="guardian_contact" name="guardian_contact" value="080-2345-6789"
+                    <label for="contact" class="block text-gray-700 font-bold mb-2">連絡先</label>
+                    <input type="text" id="contact" name="contact" value="080-2345-6789"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="guardian_email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
-                    <input type="email" id="guardian_email" name="guardian_email" value="k91jdu88@gmail.com"
+                    <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
+                    <input type="email" id="email" name="email" value="k91jdu88@gmail.com"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2">LINE連携</label>
+                    <div class="flex items-center">
+                        <input type="radio" id="line_connected_yes" name="line_connected" value="yes" class="mr-2" checked>
+                        <label for="line_connected_yes" class="mr-4">設定済み</label>
+                        <input type="radio" id="line_connected_no" name="line_connected" value="no" class="mr-2">
+                        <label for="line_connected_no">未設定</label>
+                    </div>
                 </div>
                 
                 <div class="flex items-center justify-between mb-4">
                     <button type="submit"
                         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">保存</button>
-                    <a href="guardian_account_management.html" class="text-blue-600 hover:underline">保護者アカウント管理へ戻る</a>
+                    <a href="guardian_account_management.html" class="text-blue-600 hover:underline">保護者管理へ戻る</a>
                 </div>
             </form>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 
     <!-- フッター -->
     <div id="footer"></div>
-    
+
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
