@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS管理者-コース詳細・編集</title>
+    <title>LMS管理者-ユニット詳細・編集</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -21,7 +21,7 @@
         <!-- メインコンテンツ -->
         <main class="flex-grow">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">コース詳細・編集</h1>
+                <h1 class="text-2xl font-bold">ユニット詳細・編集</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -29,44 +29,41 @@
                 </div>
             </div>
 
-            <form id="course-form" class="bg-white shadow-md rounded p-6 mb-6">
+            <form id="unit-form" class="bg-white shadow-md rounded p-6 mb-6">
                 <div class="mb-4">
-                    <label for="course-name" class="block text-gray-700">コース名</label>
-                    <input type="text" id="course-name" name="course_name" value="【0708】Java基礎実践コース" class="w-full px-3 py-2 border rounded">
+                    <label for="unit-name" class="block text-gray-700">ユニット名</label>
+                    <input type="text" id="unit-name" name="unit_name" value="Javaの基本" class="w-full px-3 py-2 border rounded">
                 </div>
 
                 <div class="mb-4">
-                    <label for="course-type" class="block text-gray-700">コース種別</label>
-                    <input type="text" id="course-type" name="course_type" value="IT" class="w-full px-3 py-2 border rounded">
+                    <label for="unit-type" class="block text-gray-700">ユニット種別</label>
+                    <input type="text" id="unit-type" name="unit_type" value="IT" class="w-full px-3 py-2 border rounded">
                 </div>
 
+                <hr>
                 <div class="mb-4">
-                    <label for="course-period" class="block text-gray-700">コース期間</label>
-                    <input type="text" id="course-period" name="course_period" value="2024-03-04 ~ 2024-08-12" class="w-full px-3 py-2 border rounded">
-                </div>
-
-                <div class="mb-4">
-                    <label for="units" class="block text-gray-700">ユニット</label>
+                    <label for="units" class="block text-gray-700">ユニット内コンテンツ</label>
                     <div id="units">
                         <div class="flex mb-2">
                             <input type="text" name="units[]" value="Javaの基本" class="w-full px-3 py-2 border rounded">
-                            <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded" onclick="removeUnit(this)">削除</button>
+                            <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded min-w-max" onclick="removeUnit(this)">削除</button>
                         </div>
                         <div class="flex mb-2">
                             <input type="text" name="units[]" value="Web開発基礎" class="w-full px-3 py-2 border rounded">
-                            <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded" onclick="removeUnit(this)">削除</button>
+                            <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded min-w-max" onclick="removeUnit(this)">削除</button>
                         </div>
                     </div>
-                    <div class="flex mt-4">
+                    <hr>
+                    <div class="flex ">
                         <select id="unit-select" class="w-full px-3 py-2 border rounded">
-                            <option value="" selected disabled>ユニットを選択してください</option>
-                            <option value="Javaの基本">Javaの基本</option>
-                            <option value="Web開発基礎">Web開発基礎</option>
-                            <option value="制御構造">制御構造</option>
-                            <option value="オブジェクト指向プログラミング（OOP）の基礎">オブジェクト指向プログラミング（OOP）の基礎</option>
-                            <option value="JavaでのWeb開発">JavaでのWeb開発</option>
+                            <option value="" selected disabled>コンテンツを選択してください</option>
+                            <option value="Javaとは何か？">Javaとは何か？</option>
+                            <option value="開発環境のセットアップ">開発環境のセットアップ</option>
+                            <option value="最初のプログラム「Hello World」">最初のプログラム「Hello World」</option>
+                            <option value="基本的なデータ型と変数">基本的なデータ型と変数</option>
+                            <option value="演算子と式">演算子と式</option>
                         </select>
-                        <button type="button" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded" onclick="addUnit()">ユニット追加</button>
+                        <button type="button" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded  min-w-max" onclick="addUnit()">追加</button>
                     </div>
                 </div>
 
@@ -95,7 +92,7 @@
                 unitDiv.classList.add('flex', 'mb-2');
                 unitDiv.innerHTML = `
                     <input type="text" name="units[]" value="${selectedUnit}" class="w-full px-3 py-2 border rounded" readonly>
-                    <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded" onclick="removeUnit(this)">削除</button>
+                    <button type="button" class="ml-2 px-4 py-2 bg-red-500 text-white rounded min-w-max" onclick="removeUnit(this)">削除</button>
                 `;
                 unitsContainer.appendChild(unitDiv);
                 unitSelect.selectedIndex = 0;
