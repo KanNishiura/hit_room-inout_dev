@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC管理-管理者アカウント詳細・編集</title>
+    <title>FC管理-講師アカウント新規登録</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -25,7 +25,7 @@
         <!-- メインコンテンツ -->
         <main class="flex-grow">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">管理者アカウント詳細・編集</h1>
+                <h1 class="text-2xl font-bold">講師アカウント新規登録</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -33,39 +33,42 @@
                 </div>
             </div>
 
-            <!-- 詳細・編集フォーム -->
-            <form>
+            <!--新規登録フォーム -->
+            <form action="teacher_account_detail_edit.html" method="post">
+
                 <div class="mb-4">
-                    <label for="admin_id" class="block text-gray-700 font-bold mb-2">管理者ID</label>
-                    <input type="text" id="admin_id" name="admin_id" value="HIT01002" readonly
+                    <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
+                    <input type="text" id="name" name="name" value=""
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
-                    <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
-                    <input type="text" id="name" name="name" value="西浦 幹"
+                    <label for="age" class="block text-gray-700 font-bold mb-2">所属</label>
+                    <input type="text" id="age" name="age" value=""
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="contact" class="block text-gray-700 font-bold mb-2">連絡先</label>
-                    <input type="text" id="contact" name="contact" value="06-6940-0566"
+                    <input type="text" id="contact" name="contact" value=""
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
-                    <input type="email" id="email" name="email" value="nishiura.kan@h-i-t.jp"
+                    <input type="email" id="email" name="email" value=""
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
                 </div>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-4">
                     <button type="submit"
-                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">保存</button>
-                    <a href="index.html" class="text-blue-600 hover:underline">ダッシュボードへ戻る</a>
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">新規登録</button>
+                    <a href="teacher_account_management.html" class="text-blue-600 hover:underline">講師アカウント管理へ戻る</a>
                 </div>
             </form>
+
         </div>
     </main>
 </div>
-<!-- フッター -->
-<div id="footer"></div>
+
+    <!-- フッター -->
+    <div id="footer"></div>
 
 </body>
 

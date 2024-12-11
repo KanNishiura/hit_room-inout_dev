@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC管理-保護者詳細・編集</title>
+    <title>保護者データ新規登録</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -24,7 +24,7 @@
         <!-- メインコンテンツ -->
         <main class="flex-grow">
             <div class="flex justify-between mb-4">
-                <h1 class="text-2xl font-bold">保護者データ詳細・編集</h1>
+                <h1 class="text-2xl font-bold">保護者データ新規登録</h1>
                 <div class="hamburger my-auto" id="hamburger">
                     <div></div>
                     <div></div>
@@ -32,46 +32,46 @@
                 </div>
             </div>
 
-            <!-- 詳細・編集フォーム -->
+            <!-- 新規登録フォーム -->
             <form>
                 <div class="mb-4">
                     <label for="guardian_id" class="block text-gray-700 font-bold mb-2">保護者ID</label>
-                    <input type="text" id="guardian_id" name="guardian_id" value="G001" readonly
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <input type="text" id="guardian_id" name="guardian_id" placeholder="Gxxx"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-bold mb-2">名前</label>
-                    <input type="text" id="name" name="name" value="河内 和美"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <input type="text" id="name" name="name" placeholder="名前"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <div class="mb-4">
                     <label for="child_name" class="block text-gray-700 font-bold mb-2">生徒の名前</label>
-                    <input type="text" id="child_name" name="child_name" value="河内 陽太"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <input type="text" id="child_name" name="child_name" placeholder="名前"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <div class="mb-4">
                     <label for="contact" class="block text-gray-700 font-bold mb-2">連絡先</label>
-                    <input type="text" id="contact" name="contact" value="080-2345-6789"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <input type="text" id="contact" name="contact" placeholder="例: 090-0000-1111"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
-                    <input type="email" id="email" name="email" value="k91jdu88@gmail.com"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm">
+                    <input type="email" id="email" name="email" placeholder="例: example@example.com"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2">LINE連携</label>
                     <div class="flex items-center">
-                        <input type="radio" id="line_connected_yes" name="line_connected" value="yes" class="mr-2" checked>
+                        <input type="radio" id="line_connected_yes" name="line_connected" value="yes" class="mr-2">
                         <label for="line_connected_yes" class="mr-4">設定済み</label>
-                        <input type="radio" id="line_connected_no" name="line_connected" value="no" class="mr-2">
+                        <input type="radio" id="line_connected_no" name="line_connected" value="no" class="mr-2" checked>
                         <label for="line_connected_no">未設定</label>
                     </div>
                 </div>
                 
                 <div class="flex items-center justify-between mb-4">
                     <button type="submit"
-                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">保存</button>
+                        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">登録</button>
                     <a href="guardian_account_management.html" class="text-blue-600 hover:underline">保護者管理へ戻る</a>
                 </div>
             </form>

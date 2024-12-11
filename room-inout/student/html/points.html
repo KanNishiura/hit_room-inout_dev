@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポイント履歴</title>
+    <title>入退室生徒-ポイント履歴</title>
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <link rel="stylesheet" href="../css/styles.css"> -->
@@ -11,10 +11,10 @@
 <body class="bg-gray-50 h-screen flex flex-col">
 
     <!-- ヘッダー -->
-    <header class="bg-orange-500 text-white p-4 flex flex-col justify-between h-24">
-        <div class="text-xl font-bold">入退室管理システム</div>
-        <div class="flex justify-between items-center mt-2">
-            <div class="text-lg">林太郎 さん</div>
+    <header class="bg-orange-500 text-white p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold"><a href="../../../room-inout/room-inout.html">入退室管理</a></div>
+        <div class="flex items-center">
+            <div class="text-lg mr-4"><i class="fa-regular fa-circle-user"></i>河内 陽太</div>
             <a href="#" class="text-sm text-orange-200 hover:underline">ログアウト</a>
         </div>
     </header>
@@ -54,8 +54,12 @@
     </main>
 
     <!-- フッター -->
-    <footer class="bg-orange-500 text-white p-4 text-center text-sm">
-        &copy; HIT 2024
+    <footer>
+        <div class="bg-orange-500 text-white container mx-auto min-w-full text-center flex justify-between px-2">
+            <p class="flex-1">　</p>
+            <p class="flex-1 m-auto">2024 &copy; HIT</p>
+            <p class="flex-1 p-1 text-right">事業再構築</p>
+        </div>
     </footer>
 
     <script>

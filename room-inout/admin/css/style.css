@@ -72,6 +72,7 @@ aside {
     color: #6EACDA;
     position: fixed;
     top: 0px;
+    /* height: 100%; */
     height: calc(100% - 0px);
     padding: 100px 20px;
     overflow-y: auto;
